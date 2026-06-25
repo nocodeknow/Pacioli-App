@@ -167,7 +167,7 @@ export default function TransactionsListView() {
       case 'Income':
         return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
       case 'Expense':
-        return 'bg-rose-500/10 text-rose-450 border-rose-500/20';
+        return 'bg-rose-500/10 text-rose-400 border-rose-500/20';
       case 'Transfer':
         return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
       case 'Split':
@@ -367,9 +367,10 @@ export default function TransactionsListView() {
                         <div className="flex items-center gap-2 shrink-0">
                           <span className={cn(
                             "text-xs font-bold tracking-tight",
-                            tx.type === 'Income' ? 'text-emerald-450' : 'text-foreground'
+                            tx.type === 'Income' ? 'text-emerald-400' :
+                            tx.type === 'Expense' ? 'text-rose-400' : 'text-foreground'
                           )}>
-                            {tx.type === 'Income' ? '+' : ''}{formatCurrency(tx.amount)}
+                            {formatCurrency(Math.abs(tx.amount))}
                           </span>
                           <ChevronRight className="size-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
                         </div>

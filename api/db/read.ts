@@ -341,12 +341,33 @@ export async function getAccountRegisterInMemory(
     finalBeginningBalance = parseFloat(beginningBalanceResult?.sum || '0');
   }
 
+  const txTypeSubquery = db
+    .select({
+      id: transactionsTable.id,
+      type: sql<string>`CASE 
+        WHEN COUNT(${postingsTable.id}) > 2 THEN 'Split'
+        WHEN COUNT(${postingsTable.id}) = 2 THEN
+          CASE 
+            WHEN SUM(CASE WHEN LOWER(${accountsTable.type}) = 'income' THEN 1 ELSE 0 END) > 0 THEN 'Income'
+            WHEN SUM(CASE WHEN LOWER(${accountsTable.type}) IN ('asset', 'liability', 'equity') THEN 1 ELSE 0 END) = 2 THEN 'Transfer'
+            ELSE 'Expense'
+          END
+        ELSE 'Expense'
+      END`.as('tx_type'),
+    })
+    .from(transactionsTable)
+    .innerJoin(postingsTable, eq(transactionsTable.id, postingsTable.transactionId))
+    .innerJoin(accountsTable, eq(postingsTable.accountId, accountsTable.id))
+    .groupBy(transactionsTable.id)
+    .as('tx_types');
+
   // 2. Select rows using Window Function inside a Subquery to compute running balance from inception
   const sq = db
     .select({
       id: transactionsTable.id,
       date: transactionsTable.date,
       description: transactionsTable.description,
+      type: txTypeSubquery.type,
       amount: postingsTable.amount,
       runningBalance: sql<number>`SUM(${postingsTable.amount}) OVER (
         ORDER BY ${transactionsTable.date} ASC, ${transactionsTable.id} ASC
@@ -355,6 +376,7 @@ export async function getAccountRegisterInMemory(
     .from(postingsTable)
     .innerJoin(transactionsTable, eq(postingsTable.transactionId, transactionsTable.id))
     .innerJoin(accountsTable, eq(postingsTable.accountId, accountsTable.id))
+    .innerJoin(txTypeSubquery, eq(transactionsTable.id, txTypeSubquery.id))
     .where(accountConditions)
     .as('sq');
 
@@ -371,6 +393,7 @@ export async function getAccountRegisterInMemory(
       id: sq.id,
       date: sq.date,
       description: sq.description,
+      type: sq.type,
       amount: sq.amount,
       runningBalance: sq.runningBalance,
     })
@@ -382,6 +405,7 @@ export async function getAccountRegisterInMemory(
     id: row.id,
     date: row.date,
     description: row.description,
+    type: row.type,
     amount: row.amount,
     runningBalance: typeof row.runningBalance === 'string' ? parseFloat(row.runningBalance) : Number(row.runningBalance),
   }));

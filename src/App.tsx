@@ -103,9 +103,9 @@ function AppContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-background sm:bg-neutral-950 flex flex-col items-center sm:justify-center font-sans antialiased text-foreground">
+    <div className="w-full h-full sm:min-h-screen bg-background sm:bg-neutral-950 flex flex-col items-center sm:justify-center font-sans antialiased text-foreground">
       {/* Phone Container: Standard Android viewport frame on desktop, full-screen on mobile */}
-      <div className="w-full max-w-md h-[100dvh] sm:h-[800px] bg-background sm:border sm:border-neutral-800/80 sm:rounded-[36px] sm:shadow-2xl overflow-hidden flex flex-col relative sm:my-6">
+      <div className="w-full max-w-md h-full sm:h-[800px] bg-background sm:border sm:border-neutral-800/80 sm:rounded-[36px] sm:shadow-2xl overflow-hidden flex flex-col relative sm:my-6">
         
         {/* Top App Bar */}
         <header className="h-14 bg-background border-b border-border flex items-center justify-between px-4 sticky top-0 z-10 select-none">

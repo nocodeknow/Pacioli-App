@@ -13,6 +13,7 @@ import { cn, formatCurrency } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import type { Transaction, TransactionId, AccountEntity, Category } from '@finance-platform/shared-types';
 import { CustomSelect } from '@/components/ui/select';
+import { DatePicker } from '@/components/ui/date-picker';
 
 interface TransactionFormViewProps {
   mode: 'add' | 'edit';
@@ -85,9 +86,9 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
   });
 
   // Split lines
-  const [outflows, setOutflows] = useState<{ id: string; account: string; amount: number; notes: string | null }[]>(() => {
+  const [debits, setDebits] = useState<{ id: string; account: string; amount: number; notes: string | null }[]>(() => {
     if (originalTx && originalTx.type === 'Split') {
-      return originalTx.postings.filter(p => p.amount < 0).map(p => ({
+      return originalTx.postings.filter(p => p.amount > 0).map(p => ({
         id: p.id,
         account: p.account,
         amount: Math.abs(p.amount),
@@ -97,12 +98,12 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
     return [{ id: 'out-1', account: '', amount: 0, notes: null }];
   });
 
-  const [inflows, setInflows] = useState<{ id: string; account: string; amount: number; notes: string | null }[]>(() => {
+  const [credits, setCredits] = useState<{ id: string; account: string; amount: number; notes: string | null }[]>(() => {
     if (originalTx && originalTx.type === 'Split') {
-      return originalTx.postings.filter(p => p.amount > 0).map(p => ({
+      return originalTx.postings.filter(p => p.amount < 0).map(p => ({
         id: p.id,
         account: p.account,
-        amount: p.amount,
+        amount: Math.abs(p.amount),
         notes: p.notes,
       }));
     }
@@ -112,84 +113,108 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
   // Automatically update splits on type changes to Split or when amount changes
   const handleTypeChange = (newType: Transaction['type']) => {
     setTxType(newType);
-    if (newType === 'Split' && outflows.length === 1 && outflows[0].amount === 0 && inflows.length === 1 && inflows[0].amount === 0) {
-      setOutflows([
+    if (newType === 'Split' && debits.length === 1 && debits[0].amount === 0 && credits.length === 1 && credits[0].amount === 0) {
+      setDebits([
         { id: 'out-1', account: sourceAccount || accounts[0]?.id || '', amount: amount, notes: null }
       ]);
-      setInflows([
+      setCredits([
         { id: 'in-1', account: category || categories[0]?.id || '', amount: amount, notes: null }
       ]);
     }
   };
 
-  const handleAddOutflow = () => {
-    setOutflows([
-      ...outflows,
+  const handleAddDebit = () => {
+    setDebits([
+      ...debits,
       { id: Math.random().toString(), account: '', amount: 0, notes: null }
     ]);
   };
 
-  const handleRemoveOutflow = (lineId: string) => {
-    if (outflows.length <= 1) return;
-    setOutflows(outflows.filter(o => o.id !== lineId));
+  const handleRemoveDebit = (lineId: string) => {
+    if (debits.length <= 1) return;
+    setDebits(debits.filter(o => o.id !== lineId));
   };
 
-  const handleUpdateOutflow = (lineId: string, updates: Partial<(typeof outflows)[number]>) => {
-    setOutflows(outflows.map(line => line.id === lineId ? { ...line, ...updates } : line));
+  const handleUpdateDebit = (lineId: string, updates: Partial<(typeof debits)[number]>) => {
+    setDebits(debits.map(line => line.id === lineId ? { ...line, ...updates } : line));
   };
 
-  const handleAddInflow = () => {
-    setInflows([
-      ...inflows,
+  const handleAddCredit = () => {
+    setCredits([
+      ...credits,
       { id: Math.random().toString(), account: '', amount: 0, notes: null }
     ]);
   };
 
-  const handleRemoveInflow = (lineId: string) => {
-    if (inflows.length <= 1) return;
-    setInflows(inflows.filter(i => i.id !== lineId));
+  const handleRemoveCredit = (lineId: string) => {
+    if (credits.length <= 1) return;
+    setCredits(credits.filter(i => i.id !== lineId));
   };
 
-  const handleUpdateInflow = (lineId: string, updates: Partial<(typeof inflows)[number]>) => {
-    setInflows(inflows.map(line => line.id === lineId ? { ...line, ...updates } : line));
+  const handleUpdateCredit = (lineId: string, updates: Partial<(typeof credits)[number]>) => {
+    setCredits(credits.map(line => line.id === lineId ? { ...line, ...updates } : line));
   };
 
-  const totalOutflows = outflows.reduce((sum, o) => sum + Number(o.amount || 0), 0);
-  const totalInflows = inflows.reduce((sum, i) => sum + Number(i.amount || 0), 0);
-  const difference = Number((totalOutflows - totalInflows).toFixed(2));
-  const isSplitBalanced = difference === 0 && totalOutflows > 0;
+  const totalDebits = debits.reduce((sum, o) => sum + Number(o.amount || 0), 0);
+  const totalCredits = credits.reduce((sum, i) => sum + Number(i.amount || 0), 0);
+  const difference = Number((totalDebits - totalCredits).toFixed(2));
+  const isSplitBalanced = difference === 0 && totalDebits > 0;
 
   const sourceAccountOptions = useMemo(() => {
     return accounts
-      .filter(acc => !acc.isGroup)
-      .map(acc => ({ value: acc.name, label: acc.displayName }));
+      .filter(acc => !acc.isGroup && (acc.type === 'Asset' || acc.type === 'Liability'))
+      .map(acc => ({ value: acc.name, label: acc.displayName }))
+      .sort((a, b) => a.label.localeCompare(b.label));
   }, [accounts]);
 
   const categoryOptions = useMemo(() => {
     return categories
       .filter(cat => cat.type === txType && !cat.isGroup)
-      .map(cat => ({ value: cat.name, label: cat.displayName }));
+      .map(cat => ({ value: cat.name, label: cat.displayName }))
+      .sort((a, b) => a.label.localeCompare(b.label));
   }, [categories, txType]);
 
   const transferDestAccountOptions = useMemo(() => {
     return accounts
-      .filter(acc => acc.name !== sourceAccount && !acc.isGroup)
-      .map(acc => ({ value: acc.name, label: acc.displayName }));
+      .filter(acc => acc.name !== sourceAccount && !acc.isGroup && (acc.type === 'Asset' || acc.type === 'Liability'))
+      .map(acc => ({ value: acc.name, label: acc.displayName }))
+      .sort((a, b) => a.label.localeCompare(b.label));
   }, [accounts, sourceAccount]);
 
-  const splitInflowOptions = useMemo(() => {
+  const splitDebitOptions = useMemo(() => {
     return [
       {
         label: 'Categories',
         options: categories
-          .filter(cat => !cat.isGroup)
-          .map(cat => ({ value: cat.name, label: cat.displayName })),
+          .filter(cat => cat.type === 'Expense' && !cat.isGroup)
+          .map(cat => ({ value: cat.name, label: cat.displayName }))
+          .sort((a, b) => a.label.localeCompare(b.label)),
       },
       {
         label: 'Accounts',
         options: accounts
-          .filter(acc => !acc.isGroup)
-          .map(acc => ({ value: acc.name, label: acc.displayName })),
+          .filter(acc => !acc.isGroup && (acc.type === 'Asset' || acc.type === 'Liability'))
+          .map(acc => ({ value: acc.name, label: acc.displayName }))
+          .sort((a, b) => a.label.localeCompare(b.label)),
+      },
+    ];
+  }, [categories, accounts]);
+
+  const splitCreditOptions = useMemo(() => {
+    return [
+      {
+        label: 'Categories',
+        options: categories
+          .filter(cat => cat.type === 'Income' && !cat.isGroup)
+          .map(cat => ({ value: cat.name, label: cat.displayName }))
+          .sort((a, b) => a.label.localeCompare(b.label)),
+      },
+      {
+        label: 'Accounts',
+        options: accounts
+          .filter(acc => !acc.isGroup && (acc.type === 'Asset' || acc.type === 'Liability'))
+          .map(acc => ({ value: acc.name, label: acc.displayName }))
+          .sort((a, b) => a.label.localeCompare(b.label)),
       },
     ];
   }, [categories, accounts]);
@@ -200,9 +225,9 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
 
     if (txType === 'Split') {
       if (!isSplitBalanced) return false;
-      const allOutflowsValid = outflows.every(o => o.account && o.amount > 0);
-      const allInflowsValid = inflows.every(i => i.account && i.amount > 0);
-      return allOutflowsValid && allInflowsValid;
+      const allDebitsValid = debits.every(o => o.account && o.amount > 0);
+      const allCreditsValid = credits.every(i => i.account && i.amount > 0);
+      return allDebitsValid && allCreditsValid;
     } else {
       if (amount <= 0 || isNaN(amount)) return false;
       if (!sourceAccount) return false;
@@ -214,7 +239,7 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
       }
       return true;
     }
-  }, [date, amount, sourceAccount, txType, destAccount, category, isSplitBalanced, outflows, inflows]);
+  }, [date, amount, sourceAccount, txType, destAccount, category, isSplitBalanced, debits, credits]);
 
   const handleSave = async () => {
     if (!canSave || isSaving) return;
@@ -263,14 +288,14 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
       ];
     } else if (txType === 'Split') {
       finalPostings = [
-        ...outflows.map(o => ({
+        ...debits.map(o => ({
           account: o.account,
-          amount: -Number(o.amount),
+          amount: Number(o.amount),
           notes: o.notes ? o.notes.trim() : null,
         })),
-        ...inflows.map(i => ({
+        ...credits.map(i => ({
           account: i.account,
-          amount: Number(i.amount),
+          amount: -Number(i.amount),
           notes: i.notes ? i.notes.trim() : null,
         })),
       ];
@@ -279,7 +304,7 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
     const payload = {
       date,
       type: txType,
-      amount: txType === 'Split' ? totalInflows : Number(amount),
+      amount: txType === 'Split' ? totalCredits : Number(amount),
       notes: notes.trim() || null,
       postings: finalPostings
     };
@@ -348,19 +373,16 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
         {/* Date Field */}
         <div className="flex flex-col gap-1.5">
           <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Date</label>
-          <input
-            type="date"
+          <DatePicker
             value={date}
-            onChange={e => setDate(e.target.value)}
-            required
-            className={inputClass}
+            onChange={setDate}
           />
         </div>
 
         {/* Amount Field */}
         {txType !== 'Split' && (
           <div className="flex flex-col gap-1.5">
-            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Total Amount (INR)</label>
+            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Total Amount</label>
             <div className="relative flex items-center">
               <input
                 type="number"
@@ -370,10 +392,22 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
                 onChange={e => setAmount(Number(e.target.value))}
                 placeholder="0.00"
                 required
-                className={cn(inputClass, "pr-12")}
+                className={inputClass}
               />
-              <span className="absolute right-3.5 text-muted-foreground text-[10px] font-bold uppercase tracking-wider">INR</span>
             </div>
+          </div>
+        )}
+
+        {/* Conditional Field: Expense / Income Category */}
+        {(txType === 'Expense' || txType === 'Income') && (
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Category</label>
+            <CustomSelect
+              value={category}
+              onChange={val => setCategory(val)}
+              options={categoryOptions}
+              placeholder="Select category..."
+            />
           </div>
         )}
 
@@ -388,19 +422,6 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
               onChange={val => setSourceAccount(val)}
               options={sourceAccountOptions}
               placeholder="Select account..."
-            />
-          </div>
-        )}
-
-        {/* Conditional Field: Expense / Income Category */}
-        {(txType === 'Expense' || txType === 'Income') && (
-          <div className="flex flex-col gap-1.5">
-            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Category</label>
-            <CustomSelect
-              value={category}
-              onChange={val => setCategory(val)}
-              options={categoryOptions}
-              placeholder="Select category..."
             />
           </div>
         )}
@@ -424,26 +445,26 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
           </div>
         )}
 
-        {/* Conditional Field: Split Outflows & Inflows Sections */}
+        {/* Conditional Field: Split Debits & Credits Sections */}
         {txType === 'Split' && (
           <div className="flex flex-col gap-5 border border-neutral-800 bg-neutral-950/40 p-4 rounded-2xl mt-1">
             
-            {/* Outflows (From) Section */}
+            {/* Debit Section */}
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider font-semibold">From (Outflows)</span>
+                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider font-semibold">Debit</span>
               </div>
 
               <div className="flex flex-col gap-2.5">
-                {outflows.map((out) => (
+                {debits.map((out) => (
                   <div key={out.id} className="flex gap-2 items-center">
                     <CustomSelect
                       value={out.account}
-                      onChange={val => handleUpdateOutflow(out.id, { account: val })}
-                      options={sourceAccountOptions}
+                      onChange={val => handleUpdateDebit(out.id, { account: val })}
+                      options={splitDebitOptions}
                       size="sm"
                       className="flex-1 min-w-0"
-                      placeholder="Select asset/liability..."
+                      placeholder="Select category/account..."
                     />
                     
                     <div className="relative flex items-center w-24 shrink-0">
@@ -453,17 +474,16 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
                         min="0.01"
                         placeholder="0"
                         value={out.amount || ''}
-                        onChange={e => handleUpdateOutflow(out.id, { amount: Number(e.target.value) })}
-                        className="bg-neutral-900 border border-neutral-800 rounded-lg p-2 pl-2 pr-9 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary w-full text-right font-medium"
+                        onChange={e => handleUpdateDebit(out.id, { amount: Number(e.target.value) })}
+                        className="bg-neutral-900 border border-neutral-800 rounded-lg p-2 px-2 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary w-full text-right font-medium"
                       />
-                      <span className="absolute right-2.5 text-muted-foreground text-[9px] font-bold">INR</span>
                     </div>
 
-                    {outflows.length > 1 && (
+                    {debits.length > 1 && (
                       <button
                         type="button"
-                        onClick={() => handleRemoveOutflow(out.id)}
-                        className="p-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-muted-foreground hover:text-rose-450 transition-colors cursor-pointer shrink-0"
+                        onClick={() => handleRemoveDebit(out.id)}
+                        className="p-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-muted-foreground hover:text-rose-400 transition-colors cursor-pointer shrink-0"
                       >
                         <X className="size-3.5" />
                       </button>
@@ -472,29 +492,29 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
                 ))}
                 <button
                   type="button"
-                  onClick={handleAddOutflow}
+                  onClick={handleAddDebit}
                   className="text-[11px] font-bold text-primary hover:text-primary/90 flex items-center gap-1 cursor-pointer py-1.5 self-start mt-1 ml-1"
                 >
-                  <Plus className="size-3.5" /> Add Account
+                  <Plus className="size-3.5" /> Add Debit
                 </button>
               </div>
             </div>
 
             <hr className="border-neutral-850" />
 
-            {/* Inflows (To) Section */}
+            {/* Credit Section */}
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider font-semibold">To (Inflows)</span>
+                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider font-semibold">Credit</span>
               </div>
 
               <div className="flex flex-col gap-2.5">
-                {inflows.map((inf) => (
+                {credits.map((inf) => (
                   <div key={inf.id} className="flex gap-2 items-center">
                     <CustomSelect
                       value={inf.account}
-                      onChange={val => handleUpdateInflow(inf.id, { account: val })}
-                      options={splitInflowOptions}
+                      onChange={val => handleUpdateCredit(inf.id, { account: val })}
+                      options={splitCreditOptions}
                       size="sm"
                       className="flex-1 min-w-0"
                       placeholder="Select category/account..."
@@ -507,17 +527,16 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
                         min="0.01"
                         placeholder="0"
                         value={inf.amount || ''}
-                        onChange={e => handleUpdateInflow(inf.id, { amount: Number(e.target.value) })}
-                        className="bg-neutral-900 border border-neutral-800 rounded-lg p-2 pl-2 pr-9 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary w-full text-right font-medium"
+                        onChange={e => handleUpdateCredit(inf.id, { amount: Number(e.target.value) })}
+                        className="bg-neutral-900 border border-neutral-800 rounded-lg p-2 px-2 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary w-full text-right font-medium"
                       />
-                      <span className="absolute right-2.5 text-muted-foreground text-[9px] font-bold">INR</span>
                     </div>
 
-                    {inflows.length > 1 && (
+                    {credits.length > 1 && (
                       <button
                         type="button"
-                        onClick={() => handleRemoveInflow(inf.id)}
-                        className="p-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-muted-foreground hover:text-rose-450 transition-colors cursor-pointer shrink-0"
+                        onClick={() => handleRemoveCredit(inf.id)}
+                        className="p-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-muted-foreground hover:text-rose-400 transition-colors cursor-pointer shrink-0"
                       >
                         <X className="size-3.5" />
                       </button>
@@ -526,10 +545,10 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
                 ))}
                 <button
                   type="button"
-                  onClick={handleAddInflow}
+                  onClick={handleAddCredit}
                   className="text-[11px] font-bold text-primary hover:text-primary/90 flex items-center gap-1 cursor-pointer py-1.5 self-start mt-1 ml-1"
                 >
-                  <Plus className="size-3.5" /> Add Item
+                  <Plus className="size-3.5" /> Add Credit
                 </button>
               </div>
             </div>
@@ -537,15 +556,15 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
             {/* Split Math Progress bar */}
             <div className="flex flex-col gap-1.5 mt-2 border-t border-neutral-850 pt-3.5">
               <div className="flex justify-between items-center text-[10px] font-medium">
-                <span className="text-muted-foreground">Outflow: {formatCurrency(totalOutflows)} | Inflow: {formatCurrency(totalInflows)}</span>
+                <span className="text-muted-foreground">Debit: {formatCurrency(totalDebits)} | Credit: {formatCurrency(totalCredits)}</span>
                 <span className={cn(
                   "font-bold",
-                  isSplitBalanced ? "text-emerald-450" : "text-rose-450"
+                  isSplitBalanced ? "text-emerald-400" : "text-rose-400"
                 )}>
                   {isSplitBalanced ? (
                     <span className="flex items-center gap-0.5"><Check className="size-3" /> Balanced</span>
                   ) : (
-                    <span>Difference: {formatCurrency(Math.abs(difference))} {difference > 0 ? '(More Outflow)' : '(More Inflow)'}</span>
+                    <span>Difference: {formatCurrency(Math.abs(difference))} {difference > 0 ? '(More Debit)' : '(More Credit)'}</span>
                   )}
                 </span>
               </div>
@@ -555,7 +574,7 @@ export default function TransactionFormView({ mode, id }: TransactionFormViewPro
                     "h-full transition-all duration-300",
                     isSplitBalanced ? "bg-emerald-500" : "bg-primary"
                   )}
-                  style={{ width: `${Math.min(100, totalOutflows > 0 ? (totalInflows / totalOutflows) * 100 : 0)}%` }}
+                  style={{ width: `${Math.min(100, totalDebits > 0 ? (totalCredits / totalDebits) * 100 : 0)}%` }}
                 ></div>
               </div>
             </div>

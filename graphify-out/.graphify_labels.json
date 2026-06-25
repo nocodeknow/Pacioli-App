@@ -9,7 +9,6 @@
   "7": "API Client Interface",
   "8": "Reporting and Dashboard Data",
   "9": "App TypeScript Configuration",
-  "10": "Development Dependencies",
   "11": "Ledger and Account Logic",
   "12": "Node TypeScript Configuration",
   "13": "Dashboard UI Components",
@@ -29,5 +28,8 @@
   "27": "Button UI Component",
   "28": "Inbox Detail View",
   "29": "Vite Build Configuration",
-  "30": "Community 30"
+  "30": "Community 30",
+  "31": "Community 31",
+  "32": "Community 32",
+  "33": "Community 33"
 }

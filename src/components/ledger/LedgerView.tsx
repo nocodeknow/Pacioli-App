@@ -253,11 +253,11 @@ export default function LedgerView({ accountId }: LedgerViewProps) {
                   <span
                     className={cn(
                       'text-sm font-semibold tracking-tight',
-                      isFavorable ? 'text-emerald-400' : 'text-foreground'
+                      row.type === 'Income' ? 'text-emerald-400' :
+                      row.type === 'Expense' ? 'text-rose-400' : 'text-foreground'
                     )}
                   >
-                    {isFavorable ? '+' : ''}
-                    {formatCurrency(row.amount)}
+                    {formatCurrency(Math.abs(row.amount))}
                   </span>
                   <span className="text-[10px] font-medium text-muted-foreground tracking-wide">
                     {formatCurrency(row.runningBalance)}

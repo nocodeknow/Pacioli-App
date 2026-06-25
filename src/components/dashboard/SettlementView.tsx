@@ -70,7 +70,7 @@ export default function SettlementView({ data }: SettlementViewProps) {
                   </div>
                 </div>
                 <div className="flex flex-col items-end">
-                  <span className={cn('text-sm font-semibold', isReceivable ? 'text-emerald-400' : 'text-rose-450')}>
+                  <span className={cn('text-sm font-semibold', isReceivable ? 'text-emerald-400' : 'text-rose-400')}>
                     {isReceivable ? '+' : ''}{formatCurrency(person.amount)}
                   </span>
                   <span className="text-[10px] text-muted-foreground">
@@ -95,7 +95,7 @@ export default function SettlementView({ data }: SettlementViewProps) {
             onClick={() => setShowSettled(!showSettled)}
             className="flex items-center justify-between px-1 text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground uppercase w-full text-left transition-colors cursor-pointer group/header font-sans"
           >
-            <span>Settled Accounts (≤ 10 INR)</span>
+            <span>Settled Accounts (≤ 10)</span>
             <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground font-sans font-medium bg-neutral-900 px-2 py-0.5 rounded-full border border-neutral-800/40 hover:border-neutral-700/60 transition-colors">
               {settledSettlements.length}
               <ChevronDown className={cn("size-3.5 transition-transform duration-250", showSettled ? "rotate-180" : "rotate-0")} />

@@ -39,6 +39,7 @@ export const LedgerRowSchema = z.object({
   id: z.string().optional(),
   date: z.string(),
   description: z.string(),
+  type: z.string().optional(),
   amount: z.number(),
   runningBalance: z.number(),
 });

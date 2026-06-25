@@ -60,8 +60,8 @@ export default function MonthlyFlowView({ data }: MonthlyFlowViewProps) {
         {/* Simple distribution bar */}
         <div className="mt-4 flex flex-col gap-1.5">
           <div className="h-2 w-full bg-neutral-800 rounded-full overflow-hidden flex">
-            <div className="h-full bg-emerald-650" style={{ width: `${incomePercentage}%` }} />
-            <div className="h-full bg-rose-650" style={{ width: `${expensePercentage}%` }} />
+            <div className="h-full bg-emerald-500" style={{ width: `${incomePercentage}%` }} />
+            <div className="h-full bg-rose-500" style={{ width: `${expensePercentage}%` }} />
           </div>
           <div className="flex justify-between text-[11px] text-muted-foreground px-0.5">
             <span className="flex items-center gap-1">
