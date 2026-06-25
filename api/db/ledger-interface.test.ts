@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, afterAll } from 'vitest';
 import { createClient, type Client } from '@libsql/client';
 import { drizzle, type LibSQLDatabase } from 'drizzle-orm/libsql';
 import { accounts, transactions, postings } from './schema.js';
@@ -24,7 +24,7 @@ describe('Database Double-Entry Ledger Tests', () => {
   let accGroceriesId = randomUUID();
 
   beforeEach(async () => {
-    dbFile = `test-ledger-${randomUUID()}.db`;
+    dbFile = `storage/test-ledger-${randomUUID()}.db`;
     client = createClient({ url: `file:${dbFile}` });
     db = drizzle(client);
 
@@ -144,16 +144,29 @@ describe('Database Double-Entry Ledger Tests', () => {
   });
 
   afterEach(async () => {
+    if (client) {
+      client.close();
+    }
+    // Attempt cleanup between runs, swallow EBUSY locks (they will be overwritten in next beforeEach)
     try {
-      if (client) {
-        client.close();
-      }
-      if (dbFile && fs.existsSync(dbFile)) {
+      if (fs.existsSync(dbFile)) {
         fs.unlinkSync(dbFile);
       }
-    } catch (err) {
-      console.error('Failed to clean up test database file:', err);
-    }
+    } catch {}
+  });
+
+  afterAll(async () => {
+    // Final cleanup after all tests in this suite complete
+    try {
+      const files = fs.readdirSync('storage');
+      for (const file of files) {
+        if (file.startsWith('test-ledger-') && file.endsWith('.db')) {
+          try {
+            fs.unlinkSync(`storage/${file}`);
+          } catch {}
+        }
+      }
+    } catch {}
   });
 
   it('1. Enforces double-entry and resolves postings', async () => {
