@@ -1,6 +1,6 @@
 # Pacioli-App
 
-Pacioli is a modern, high-performance **Personal Finance Automation Platform** designed to run fully serverless on the Cloudflare edge. Built with a focus on data integrity, double-entry ledger bookkeeping, and responsive user experiences.
+Pacioli is a modern, high-performance **Personal Finance Automation Platform** designed to run fully serverless on the Cloudflare edge. Built with a focus on data integrity, double-entry ledger bookkeeping, and responsive mobile-first user experiences.
 
 ---
 
