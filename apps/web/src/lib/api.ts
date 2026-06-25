@@ -1,6 +1,10 @@
 import type { Transaction, TransactionId, AccountEntity, Category, DashboardData, AccountLedgerResponse } from '@finance-platform/shared-types';
 
-const API_BASE = '/api';
+const viteApiUrl = import.meta.env.VITE_API_URL;
+const API_BASE = viteApiUrl
+  ? `${viteApiUrl.replace(/\/$/, '')}${viteApiUrl.endsWith('/api') || viteApiUrl.endsWith('/api/') ? '' : '/api'}`
+  : '/api';
+
 
 function parseAmount(val: any): number {
   if (typeof val === 'number') return val;
