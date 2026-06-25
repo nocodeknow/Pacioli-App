@@ -315,9 +315,9 @@
     "semantic_hash": "14253d5307ba86601a38c86bab3b6441"
   },
   "src/main.tsx": {
-    "mtime": 1781975190.0868757,
-    "ast_hash": "787e5a07efeb2bf6209d5937195f2f68",
-    "semantic_hash": "787e5a07efeb2bf6209d5937195f2f68"
+    "mtime": 1782398381.521943,
+    "ast_hash": "c76c7e0cb33b33d65988cdb66b4820a7",
+    "semantic_hash": ""
   },
   "src/shared-types/account.ts": {
     "mtime": 1782360038.2762754,
@@ -422,6 +422,16 @@
   "README.md": {
     "mtime": 1782397254.089898,
     "ast_hash": "09f7da31e9efdb788322cf942a69d74c",
+    "semantic_hash": ""
+  },
+  "public/manifest.json": {
+    "mtime": 1782398361.201517,
+    "ast_hash": "72721d1ad41182d32bbd2c43ac2a8f83",
+    "semantic_hash": ""
+  },
+  "public/sw.js": {
+    "mtime": 1782398373.6549797,
+    "ast_hash": "5abcf8c03eb6b2e28183b6a31bc14a9e",
     "semantic_hash": ""
   }
 }

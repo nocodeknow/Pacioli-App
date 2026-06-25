@@ -1,16 +1,16 @@
 # Graph Report - Pacioli-App  (2026-06-25)
 
 ## Corpus Check
-- 85 files · ~32,357 words
+- 87 files · ~32,725 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 506 nodes · 917 edges · 30 communities (27 shown, 3 thin omitted)
+- 518 nodes · 927 edges · 31 communities (28 shown, 3 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 19 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `acdd831c`
+- Built from commit: `88daddc6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,6 +42,7 @@
 - [[_COMMUNITY_Select Input Component|Select Input Component]]
 - [[_COMMUNITY_TypeScript Project References|TypeScript Project References]]
 - [[_COMMUNITY_Button UI Component|Button UI Component]]
+- [[_COMMUNITY_Community 30|Community 30]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `TransactionCandidate` - 19 edges
@@ -70,35 +71,35 @@
 ## Import Cycles
 - None detected.
 
-## Communities (30 total, 3 thin omitted)
+## Communities (31 total, 3 thin omitted)
 
 ### Community 0 - "Inbox Transaction Processing"
-Cohesion: 0.17
-Nodes (9): sourceRecords, transactionCandidates, DBTransactionCandidate, InboxRepository, InboxService, CandidateId, SourceRecordId, TransactionCandidate (+1 more)
+Cohesion: 0.16
+Nodes (10): sourceRecords, transactionCandidates, approvePayloadSchema, DBTransactionCandidate, InboxRepository, InboxService, CandidateId, SourceRecordId (+2 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.29
 Nodes (9): applyMigrationsToFile(), D1_DIR, main(), MIGRATION_DIR, readSqlFile(), seedFile(), splitSqlStatements(), main() (+1 more)
 
 ### Community 2 - "Project Dependencies"
-Cohesion: 0.06
-Nodes (34): dependencies, class-variance-authority, clsx, drizzle-orm, @fontsource-variable/geist, framer-motion, hono, lucide-react (+26 more)
+Cohesion: 0.04
+Nodes (44): dependencies, class-variance-authority, clsx, drizzle-orm, @fontsource-variable/geist, framer-motion, hono, lucide-react (+36 more)
 
 ### Community 3 - "Category Management"
-Cohesion: 0.12
-Nodes (11): CategoriesController, createCategorySchema, updateCategorySchema, CategoriesRepository, categoriesRouter, CategoriesService, CategoryId, Category (+3 more)
+Cohesion: 0.14
+Nodes (9): CategoriesController, createCategorySchema, updateCategorySchema, CategoriesRepository, categoriesRouter, CategoriesService, CategoryId, Category (+1 more)
 
 ### Community 4 - "Account Data Access"
 Cohesion: 0.26
 Nodes (5): AccountsRepository, AccountsService, getAccountTypeFromPath(), AccountEntity, AccountId
 
 ### Community 5 - "Account API Routes"
-Cohesion: 0.15
-Nodes (11): getJournalSha256(), TransactionId, Transaction, TransactionTypeSchema, createTransactionSchema, FormattedTransaction, formatTransactionResponse(), postingSchema (+3 more)
+Cohesion: 0.11
+Nodes (17): getJournalSha256(), TransactionId, TransactionIdSchema, TransactionLineIdSchema, Transaction, TransactionPosting, TransactionPostingSchema, TransactionSchema (+9 more)
 
 ### Community 6 - "Connector Management"
-Cohesion: 0.15
-Nodes (6): ConnectorsController, updateConnectorSchema, ConnectorRecord, ConnectorsRepository, connectorsRouter, ConnectorsService
+Cohesion: 0.08
+Nodes (7): ConnectorsController, updateConnectorSchema, ConnectorRecord, ConnectorsRepository, connectorsRouter, ConnectorsService, InboxController
 
 ### Community 7 - "API Client Interface"
 Cohesion: 0.12
@@ -113,8 +114,8 @@ Cohesion: 0.10
 Nodes (19): compilerOptions, allowImportingTsExtensions, baseUrl, jsx, lib, module, moduleResolution, noEmit (+11 more)
 
 ### Community 10 - "Development Dependencies"
-Cohesion: 0.09
-Nodes (22): devDependencies, autoprefixer, concurrently, dotenv, drizzle-kit, @hono/node-server, @libsql/client, pino (+14 more)
+Cohesion: 0.17
+Nodes (12): scripts, build, db:generate, db:init, db:migrate-journal, db:migrate:local, db:migrate:prod, db:seed:local (+4 more)
 
 ### Community 11 - "Ledger and Account Logic"
 Cohesion: 0.08
@@ -133,8 +134,8 @@ Cohesion: 0.21
 Nodes (8): EMPTY_ACCOUNTS, EMPTY_TRANSACTIONS, MONTHS, CategoryPostingRow, MonthlyFlowCategoryView(), MonthlyFlowCategoryViewProps, MonthlyFlowView(), MonthlyFlowViewProps
 
 ### Community 15 - "Settlement UI View"
-Cohesion: 0.11
-Nodes (17): buildWhereClause(), DbClient, DBPosting, generateReport(), getAccountRegisterInMemory(), AccountBalance, AccountBalanceSchema, AccountLedgerResponse (+9 more)
+Cohesion: 0.10
+Nodes (18): buildWhereClause(), DbClient, DBPosting, generateReport(), getAccountRegisterInMemory(), getAllTransactions(), AccountBalance, AccountBalanceSchema (+10 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.32
@@ -143,6 +144,10 @@ Nodes (7): D1_DIR, JOURNAL_PATH, main(), migrateDatabase(), parseJournalFile(), 
 ### Community 17 - "Main Application Views"
 Cohesion: 0.21
 Nodes (5): InboxView(), AppContent(), getPageTitle(), queryClient, TransactionsView()
+
+### Community 18 - "Community 18"
+Cohesion: 0.20
+Nodes (9): background_color, description, display, icons, name, orientation, short_name, start_url (+1 more)
 
 ### Community 19 - "Community 19"
 Cohesion: 0.25
@@ -153,8 +158,8 @@ Cohesion: 0.24
 Nodes (6): cn(), AccountFormView(), AccountsListView(), CategoriesListView(), CategoryFormView(), PersonFormView()
 
 ### Community 22 - "Account Schema Definitions"
-Cohesion: 0.06
-Nodes (28): AccountsController, createAccountSchema, updateAccountSchema, accountsRouter, approvePayloadSchema, AccountEntitySchema, AccountTypeSchema, AccountIdSchema (+20 more)
+Cohesion: 0.07
+Nodes (23): AccountsController, createAccountSchema, updateAccountSchema, accountsRouter, AccountEntitySchema, AccountType, AccountTypeSchema, AccountIdSchema (+15 more)
 
 ### Community 23 - "Settings and Connectors UI"
 Cohesion: 0.38
@@ -169,7 +174,7 @@ Cohesion: 0.40
 Nodes (4): CustomSelect(), CustomSelectProps, SelectGroup, SelectOption
 
 ## Knowledge Gaps
-- **155 isolated node(s):** `envSchema`, `parsed`, `DbClient`, `DBPosting`, `preferences` (+150 more)
+- **165 isolated node(s):** `envSchema`, `parsed`, `DbClient`, `DBPosting`, `preferences` (+160 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -177,16 +182,16 @@ Nodes (4): CustomSelect(), CustomSelectProps, SelectGroup, SelectOption
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `generateHledgerPath()` connect `Account Schema Definitions` to `Entity Management UI`?**
-  _High betweenness centrality (0.162) - this node is a cross-community bridge._
+  _High betweenness centrality (0.155) - this node is a cross-community bridge._
 - **Why does `AccountFormView()` connect `Entity Management UI` to `Account Schema Definitions`?**
-  _High betweenness centrality (0.161) - this node is a cross-community bridge._
+  _High betweenness centrality (0.154) - this node is a cross-community bridge._
 - **Why does `cn()` connect `Entity Management UI` to `Dashboard UI Components`, `Monthly Flow UI Components`, `Ledger View Components`, `Select Input Component`, `Button UI Component`?**
-  _High betweenness centrality (0.113) - this node is a cross-community bridge._
+  _High betweenness centrality (0.108) - this node is a cross-community bridge._
 - **What connects `envSchema`, `parsed`, `DbClient` to the rest of the system?**
-  _155 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _165 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Project Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
 - **Should `Category Management` be split into smaller, more focused modules?**
-  _Cohesion score 0.12169312169312169 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14 - nodes in this community are weakly interconnected._
 - **Should `Account API Routes` be split into smaller, more focused modules?**
-  _Cohesion score 0.14624505928853754 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10574712643678161 - nodes in this community are weakly interconnected._
