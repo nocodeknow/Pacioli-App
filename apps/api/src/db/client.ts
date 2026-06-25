@@ -40,7 +40,19 @@ export const db = drizzle(client, { schema });
 try {
   logger.info('⏳ Running database migrations...');
   let migrationsFolder = path.resolve(process.cwd(), 'drizzle');
-  if (!fs.existsSync(migrationsFolder)) {
+  
+  // Check if we are running from monorepo root
+  if (!fs.existsSync(path.resolve(migrationsFolder, 'meta/_journal.json'))) {
+    migrationsFolder = path.resolve(process.cwd(), 'apps/api/drizzle');
+  }
+  // Check if we are running from compiled dist/db folder
+  if (!fs.existsSync(path.resolve(migrationsFolder, 'meta/_journal.json'))) {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    migrationsFolder = path.resolve(__dirname, '../../drizzle');
+  }
+  // Check if we are running from src/db folder (fallback)
+  if (!fs.existsSync(path.resolve(migrationsFolder, 'meta/_journal.json'))) {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
     migrationsFolder = path.resolve(__dirname, '../../../drizzle');
