@@ -1,6 +1,8 @@
+import type { StatusCode } from 'hono/utils/http-status';
+
 export class AppError extends Error {
   constructor(
-    public statusCode: number,
+    public statusCode: StatusCode,
     public override message: string,
     public details: unknown = null
   ) {

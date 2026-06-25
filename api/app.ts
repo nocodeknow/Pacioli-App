@@ -5,28 +5,32 @@ import { dbContext } from './db/client.js';
 import { drizzle } from 'drizzle-orm/d1';
 import * as schema from './db/schema.js';
 import { logger } from './logger.js';
+import { env } from './config/env.js';
 import { AppError } from './errors/index.js';
 import { ZodError } from 'zod';
 
-export const app = new Hono().basePath('/api');
+export const app = new Hono<{ Bindings: { DB: any } }>().basePath('/api');
 
 // Request logging middleware
 app.use('*', honoLogger());
 
 // CORS setup
 app.use('*', cors({
-  origin: '*',
+  origin: env.CORS_ORIGIN,
 }));
 
-// AsyncLocalStorage binding middleware (runs in Cloudflare D1 environment)
+// AsyncLocalStorage binding middleware
 app.use('*', async (c, next) => {
-  // If we are in Cloudflare environment, bind the request DB context
   if (c.env && c.env.DB) {
     const dbInstance = drizzle(c.env.DB, { schema });
     return dbContext.run(dbInstance, () => next());
   }
-  // Otherwise, fall back to the pre-initialized local LibSQL db (already handled in client.ts)
-  await next();
+  // No D1 binding found — fail fast with a clear diagnostic error.
+  // If you are seeing this locally, run: pnpm dev (uses wrangler pages dev)
+  return c.json(
+    { error: 'D1 database binding not found. Is the wrangler D1 binding configured?' },
+    503
+  );
 });
 
 // Basic health check route

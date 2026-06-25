@@ -39,31 +39,19 @@ export class AccountsRepository {
       for (const ent of allEntitiesList) {
         map.set(ent.id, ent);
       }
-    } else {
-      const parentIds = entities
-        .map(e => e.parentId)
-        .filter((id): id is AccountId => !!id);
-      if (parentIds.length > 0) {
-        const parentRecords = await db
-          .select()
-          .from(accounts)
-          .where(inArray(accounts.id, parentIds));
-        for (const r of parentRecords) {
-          map.set(r.id, {
-            id: r.id as AccountId,
-            name: r.path,
-            displayName: r.name,
-            type: r.type as AccountType,
-            isGroup: Boolean(r.isGroup),
-            parentId: r.parentId as AccountId | null,
-            path: r.path,
-            openingBalance: 0,
-            openingDate: '2026-06-01',
-            archived: Boolean(r.archived),
-            lastReconciledDate: r.lastReconciledDate,
-            notes: r.notes,
-          });
-        }
+    }
+
+    const parentIdsToFetch = entities
+      .map(e => e.parentId)
+      .filter((id): id is AccountId => !!id && !map.has(id));
+
+    if (parentIdsToFetch.length > 0) {
+      const parentRecords = await db
+        .select()
+        .from(accounts)
+        .where(inArray(accounts.id, parentIdsToFetch));
+      for (const r of parentRecords) {
+        map.set(r.id, this.mapToEntity(r));
       }
     }
 
@@ -108,7 +96,7 @@ export class AccountsRepository {
   }
 
   async findAll(): Promise<AccountEntity[]> {
-    const records = await db.select().from(accounts);
+    const records = await db.select().from(accounts).where(eq(accounts.isGroup, false));
     if (records.length === 0) return [];
     const ids = records.map(r => r.id);
     const obMap = await this.getOpeningBalancesMap(ids);

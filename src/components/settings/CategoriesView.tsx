@@ -90,9 +90,11 @@ function CategoriesListView() {
           if (list.length === 0) return null;
           return (
             <div key={groupName} className="flex flex-col gap-2">
-              <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
-                {groupName === 'none' ? 'General / Top-level' : groupName}
-              </h4>
+              {groupName !== 'none' && (
+                <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
+                  {groupName}
+                </h4>
+              )}
               <div className="bg-neutral-900/60 border border-neutral-850 rounded-2xl overflow-hidden divide-y divide-neutral-850">
                 {list.map(cat => (
                   <div

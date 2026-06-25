@@ -1,7 +1,7 @@
 import { eq, like, or, and, sum, between, gte, lte, lt, asc, desc, sql } from 'drizzle-orm';
-import type { BaseSQLiteDatabase } from 'drizzle-orm/sqlite-core';
-import type { ResultSet } from '@libsql/client';
-type DbClient = BaseSQLiteDatabase<"async", ResultSet, Record<string, unknown>>;
+import type { DrizzleD1Database } from 'drizzle-orm/d1';
+import type * as schema from './schema.js';
+type DbClient = DrizzleD1Database<typeof schema>;
 import type { AccountBalance, ReportQuery, FinancialReport, FinancialReportRow, Transaction, AccountLedgerResponse, TransactionId, TransactionLineId } from '../../src/shared-types/index.js';
 import { toTransactionId } from '../../src/shared-types/index.js';
 import { accounts, transactions, postings } from './schema.js';

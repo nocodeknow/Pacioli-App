@@ -1,6 +1,7 @@
 import { db } from '../../db/client.js';
 import { postings, accounts, transactions } from '../../db/schema.js';
-import type { DashboardData, MonthlyFlowMock, SettlementMock, SubgroupMock, AccountMock } from '../../../src/shared-types/index.js';
+import type { DashboardData, MonthlyFlow, SettlementItem, AccountSubgroup } from '../../../src/shared-types/index.js';
+import type { AccountBalance } from '../../../src/shared-types/mocks.js';
 import { and, or, eq, like, inArray, sql } from 'drizzle-orm';
 
 export class ReportsService {
@@ -33,8 +34,8 @@ export class ReportsService {
       )
       .groupBy(accounts.id);
 
-    const assetsSubgroupsMap = new Map<string, AccountMock[]>();
-    const liabilitiesSubgroupsMap = new Map<string, AccountMock[]>();
+    const assetsSubgroupsMap = new Map<string, AccountBalance[]>();
+    const liabilitiesSubgroupsMap = new Map<string, AccountBalance[]>();
     let assetsTotal = 0;
     let liabilitiesTotal = 0;
 
@@ -68,13 +69,13 @@ export class ReportsService {
     }
 
     // Convert Asset subgroups map to array
-    const assetsSubgroups: SubgroupMock[] = Array.from(assetsSubgroupsMap.entries()).map(([name, accountsList]) => {
+    const assetsSubgroups: AccountSubgroup[] = Array.from(assetsSubgroupsMap.entries()).map(([name, accountsList]) => {
       const total = accountsList.reduce((sum, a) => sum + a.balance, 0);
       return { name, total, accounts: accountsList };
     });
 
     // Convert Liability subgroups map to array
-    const liabilitiesSubgroups: SubgroupMock[] = Array.from(liabilitiesSubgroupsMap.entries()).map(([name, accountsList]) => {
+    const liabilitiesSubgroups: AccountSubgroup[] = Array.from(liabilitiesSubgroupsMap.entries()).map(([name, accountsList]) => {
       const total = accountsList.reduce((sum, a) => sum + a.balance, 0);
       return { name, total, accounts: accountsList };
     });
@@ -102,7 +103,7 @@ export class ReportsService {
       )
       .groupBy(personNameSql);
 
-    const settlementsItems: SettlementMock[] = [];
+    const settlementsItems: SettlementItem[] = [];
     let receivablesTotal = 0;
     let payablesTotal = 0;
 
@@ -169,7 +170,7 @@ export class ReportsService {
       )
       .groupBy(monthKeySql, accounts.id);
 
-    const monthlyFlow: Record<string, MonthlyFlowMock> = {};
+    const monthlyFlow: Record<string, MonthlyFlow> = {};
 
     const MONTHS = [
       'January', 'February', 'March', 'April', 'May', 'June',
@@ -224,7 +225,7 @@ export class ReportsService {
     }
 
     // Sort monthlyFlow keys reverse chronologically
-    const sortedMonthlyFlow: Record<string, MonthlyFlowMock> = {};
+    const sortedMonthlyFlow: Record<string, MonthlyFlow> = {};
     const sortedMonthKeys = Object.keys(monthlyFlow).sort((a, b) => {
       const parseMonthYear = (str: string) => {
         const [monthName, yearStr] = str.split(' ');

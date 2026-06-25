@@ -1,8 +1,8 @@
 import { eq, sql, type ExtractTablesWithRelations } from 'drizzle-orm';
-import type { BaseSQLiteDatabase, SQLiteTransaction } from 'drizzle-orm/sqlite-core';
-import type { ResultSet } from '@libsql/client';
-type DbClient = BaseSQLiteDatabase<"async", ResultSet, Record<string, unknown>>;
-type TxClient = SQLiteTransaction<"async", ResultSet, Record<string, unknown>, ExtractTablesWithRelations<Record<string, unknown>>>;
+import type { DrizzleD1Database } from 'drizzle-orm/d1';
+import type * as schema from './schema.js';
+type DbClient = DrizzleD1Database<typeof schema>;
+type TxClient = Parameters<Parameters<DbClient['transaction']>[0]>[0];
 import { randomUUID } from 'crypto';
 import { accounts, transactions, postings } from './schema.js';
 

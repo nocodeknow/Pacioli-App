@@ -21,7 +21,12 @@ export class CategoriesRepository {
     const records = await db
       .select()
       .from(accounts)
-      .where(or(eq(accounts.type, 'Income'), eq(accounts.type, 'Expense')));
+      .where(
+        and(
+          or(eq(accounts.type, 'Income'), eq(accounts.type, 'Expense')),
+          eq(accounts.isGroup, false)
+        )
+      );
     return records.map(r => this.mapToEntity(r));
   }
 
@@ -32,7 +37,8 @@ export class CategoriesRepository {
       .where(
         and(
           eq(accounts.id, id),
-          or(eq(accounts.type, 'Income'), eq(accounts.type, 'Expense'))
+          or(eq(accounts.type, 'Income'), eq(accounts.type, 'Expense')),
+          eq(accounts.isGroup, false)
         )
       );
     return record ? this.mapToEntity(record) : null;
@@ -45,7 +51,8 @@ export class CategoriesRepository {
       .where(
         and(
           eq(sql`LOWER(${accounts.path})`, name.toLowerCase()),
-          or(eq(accounts.type, 'Income'), eq(accounts.type, 'Expense'))
+          or(eq(accounts.type, 'Income'), eq(accounts.type, 'Expense')),
+          eq(accounts.isGroup, false)
         )
       );
     return record ? this.mapToEntity(record) : null;

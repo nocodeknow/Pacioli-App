@@ -6,5 +6,20 @@ export * from './source-record.js';
 export * from './candidate.js';
 export * from './ledger.js';
 export * from './utils.js';
-export * from './mocks.js';
+
+export {
+  AccountSubgroupSchema,
+  CategoryFlowSchema,
+  MonthlyFlowSchema,
+  SettlementItemSchema,
+  DashboardDataSchema,
+} from './mocks.js';
+
+export type {
+  AccountSubgroup,
+  CategoryFlow,
+  MonthlyFlow,
+  SettlementItem,
+  DashboardData,
+} from './mocks.js';
 

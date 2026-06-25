@@ -1,54 +1,54 @@
 import { z } from 'zod';
 
-export const AccountMockSchema = z.object({
+export const AccountBalanceSchema = z.object({
   id: z.string().optional(),
   name: z.string(),
   balance: z.number(),
 });
-export type AccountMock = z.infer<typeof AccountMockSchema>;
+export type AccountBalance = z.infer<typeof AccountBalanceSchema>;
 
-export const SubgroupMockSchema = z.object({
+export const AccountSubgroupSchema = z.object({
   name: z.string(),
   total: z.number(),
-  accounts: z.array(AccountMockSchema),
+  accounts: z.array(AccountBalanceSchema),
 });
-export type SubgroupMock = z.infer<typeof SubgroupMockSchema>;
+export type AccountSubgroup = z.infer<typeof AccountSubgroupSchema>;
 
-export const CategoryFlowMockSchema = z.object({
+export const CategoryFlowSchema = z.object({
   category: z.string(),
   amount: z.number(),
 });
-export type CategoryFlowMock = z.infer<typeof CategoryFlowMockSchema>;
+export type CategoryFlow = z.infer<typeof CategoryFlowSchema>;
 
-export const MonthlyFlowMockSchema = z.object({
+export const MonthlyFlowSchema = z.object({
   income: z.number(),
   expense: z.number(),
-  incomeCategories: z.array(CategoryFlowMockSchema),
-  expenseCategories: z.array(CategoryFlowMockSchema),
+  incomeCategories: z.array(CategoryFlowSchema),
+  expenseCategories: z.array(CategoryFlowSchema),
 });
-export type MonthlyFlowMock = z.infer<typeof MonthlyFlowMockSchema>;
+export type MonthlyFlow = z.infer<typeof MonthlyFlowSchema>;
 
-export const SettlementMockSchema = z.object({
+export const SettlementItemSchema = z.object({
   id: z.string(),
   name: z.string(),
   amount: z.number(),
 });
-export type SettlementMock = z.infer<typeof SettlementMockSchema>;
+export type SettlementItem = z.infer<typeof SettlementItemSchema>;
 
 export const DashboardDataSchema = z.object({
   assets: z.object({
     total: z.number(),
-    subgroups: z.array(SubgroupMockSchema),
+    subgroups: z.array(AccountSubgroupSchema),
   }),
   liabilities: z.object({
     total: z.number(),
-    subgroups: z.array(SubgroupMockSchema),
+    subgroups: z.array(AccountSubgroupSchema),
   }),
-  monthlyFlow: z.record(z.string(), MonthlyFlowMockSchema),
+  monthlyFlow: z.record(z.string(), MonthlyFlowSchema),
   settlements: z.object({
     receivablesTotal: z.number(),
     payablesTotal: z.number(),
-    items: z.array(SettlementMockSchema),
+    items: z.array(SettlementItemSchema),
   }),
 });
 export type DashboardData = z.infer<typeof DashboardDataSchema>;

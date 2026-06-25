@@ -63,7 +63,15 @@ function AccountsListView() {
     const groups: Record<string, any[]> = {};
     filtered.forEach(acc => {
       const parts = acc.name.split(':');
-      const groupKey = activeSection === 'People' ? 'People' : (parts.length > 2 ? parts[1] : 'none');
+      let groupKey = activeSection === 'People' ? 'People' : (parts.length > 2 ? parts[1] : 'none');
+      
+      if (activeSection === 'Asset') {
+        const lowerPath = acc.name.toLowerCase();
+        if (lowerPath.startsWith('assets:bank:') || lowerPath === 'assets:cash') {
+          groupKey = 'Bank & cash';
+        }
+      }
+      
       if (!groups[groupKey]) {
         groups[groupKey] = [];
       }
@@ -120,9 +128,11 @@ function AccountsListView() {
           if (list.length === 0) return null;
           return (
             <div key={groupName} className="flex flex-col gap-2">
-              <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
-                {groupName === 'none' ? 'General / Other' : groupName}
-              </h4>
+              {groupName !== 'none' && (
+                <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
+                  {groupName}
+                </h4>
+              )}
               <div className="bg-neutral-900/60 border border-neutral-850 rounded-2xl overflow-hidden divide-y divide-neutral-850">
                 {list.map(acc => (
                   <div

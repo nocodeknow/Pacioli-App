@@ -13,12 +13,9 @@ out/
 *.db-journal
 *.db-shm
 *.db-wal
-storage/test.db
-storage/pacioli.db
-apps/api/storage/*.db
-apps/api/storage/*.db-journal
-apps/api/storage/*.db-shm
-apps/api/storage/*.db-wal
+storage/
+.wrangler/
+backup/
 
 # Local env files
 .env
@@ -32,7 +29,6 @@ Thumbs.db
 
 # Editor and agent files
 .gemini/
-.agents/
 .idea/
 .vscode/
 *.suo

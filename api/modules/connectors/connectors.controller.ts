@@ -17,13 +17,13 @@ export class ConnectorsController {
   }
 
   async getConnector(c: Context) {
-    const id = c.req.param('id');
+    const id = c.req.param('id')!;
     const conn = await connectorsService.getConnectorById(id);
     return c.json(conn);
   }
 
   async updateConnector(c: Context) {
-    const id = c.req.param('id');
+    const id = c.req.param('id')!;
     const body = await c.req.json();
     const payload = updateConnectorSchema.parse(body);
     const updated = await connectorsService.updateConnector(id, payload);
