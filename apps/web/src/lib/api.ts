@@ -1,5 +1,6 @@
 import type { Transaction, TransactionId, AccountEntity, Category, DashboardData, AccountLedgerResponse } from '@finance-platform/shared-types';
 
+// Resolve API base URL dynamically from environment variables in production, or fallback to local proxy /api
 const viteApiUrl = import.meta.env.VITE_API_URL;
 const API_BASE = viteApiUrl
   ? `${viteApiUrl.replace(/\/$/, '')}${viteApiUrl.endsWith('/api') || viteApiUrl.endsWith('/api/') ? '' : '/api'}`
