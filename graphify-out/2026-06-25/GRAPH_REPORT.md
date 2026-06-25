@@ -1,7 +1,7 @@
 # Graph Report - Pacioli-App  (2026-06-25)
 
 ## Corpus Check
-- 84 files · ~31,724 words
+- 84 files · ~31,893 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

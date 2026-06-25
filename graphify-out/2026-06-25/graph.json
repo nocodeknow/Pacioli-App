@@ -2867,7 +2867,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/migrate-journal.ts",
-      "source_location": "L321",
+      "source_location": "L363",
       "_origin": "ast",
       "id": "scripts_migrate_journal_main",
       "community": 16,

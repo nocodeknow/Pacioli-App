@@ -34,7 +34,28 @@ To guarantee data integrity and seamless code updates, follow a hybrid deploymen
 
 ---
 
-## 💻 3. Local Development & Compilation
+## 📱 3. Mobile Testing & Preview Deployments
+To test features on a mobile device safely without affecting the production app, follow this preview workflow:
+*   **Preview Deployment**:
+    ```bash
+    pnpm wrangler pages deploy dist --branch=stage
+    ```
+    This creates a staging deployment at `https://stage.pacioli-app.pages.dev` to test on your phone.
+*   **Database Bindings in Preview**:
+    *   **Option A (UI/CSS Only)**: Preview shares `pacioli-db` (same live data). Safe for UI/CSS changes.
+    *   **Option B (Migrations/Schema Tests)**: Preview binds to `pacioli-db-staging`. Sync production data to staging via:
+        ```bash
+        npx wrangler d1 export pacioli-db --remote --output=backup/prod_data.sql
+        npx wrangler d1 execute pacioli-db-staging --remote --file=backup/prod_data.sql
+        ```
+*   **Promote to Production**: Once verified on your phone, deploy to the main branch:
+    ```bash
+    pnpm wrangler pages deploy dist --branch=main
+    ```
+
+---
+
+## 💻 4. Local Development & Compilation
 Do not use legacy Node servers for development. The application runs on Cloudflare Pages Functions.
 
 *   **Vite Watcher**: Compile code continuously during local edits:
@@ -49,7 +70,7 @@ Do not use legacy Node servers for development. The application runs on Cloudfla
 
 ---
 
-## 🏛️ 3. Architectural Constraints & Code Quality
+## 🏛️ 5. Architectural Constraints & Code Quality
 
 *   **Serverless Constraints**: All backend API code (`api/` and `functions/`) executes in a Cloudflare Worker context. Do NOT use Node-specific modules (e.g. `process.env`, `fs`, `path`, or loggers like `pino` with stream output). Use Web APIs and Cloudflare Bindings.
 *   **Leaf-Only Selection**: To prevent posting errors, only leaf accounts (i.e. where `isGroup = false`) may be selectable for transactions. Parent account folders (e.g. `Expenses`, `Assets`, `Bank & cash`) are grouping headers and must be filtered out from all transaction UI selection elements.

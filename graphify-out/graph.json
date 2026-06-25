@@ -120,7 +120,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "db_read_getjournalsha256",
-      "community": 15,
+      "community": 5,
       "norm_label": "getjournalsha256()"
     },
     {
@@ -570,7 +570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "accounts_accounts_controller",
-      "community": 5,
+      "community": 22,
       "norm_label": "accounts.controller.ts"
     },
     {
@@ -580,7 +580,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "accounts_accounts_controller_createaccountschema",
-      "community": 5,
+      "community": 22,
       "norm_label": "createaccountschema"
     },
     {
@@ -590,7 +590,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "accounts_accounts_controller_updateaccountschema",
-      "community": 5,
+      "community": 22,
       "norm_label": "updateaccountschema"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "accounts_accounts_controller_accountscontroller",
-      "community": 5,
+      "community": 22,
       "norm_label": "accountscontroller"
     },
     {
@@ -610,7 +610,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "accounts_accounts_controller_accountscontroller_getaccounts",
-      "community": 5,
+      "community": 22,
       "norm_label": ".getaccounts()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "accounts_accounts_controller_accountscontroller_getaccount",
-      "community": 5,
+      "community": 22,
       "norm_label": ".getaccount()"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "accounts_accounts_controller_accountscontroller_createaccount",
-      "community": 5,
+      "community": 22,
       "norm_label": ".createaccount()"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "accounts_accounts_controller_accountscontroller_updateaccount",
-      "community": 5,
+      "community": 22,
       "norm_label": ".updateaccount()"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "accounts_accounts_controller_accountscontroller_getaccountledger",
-      "community": 5,
+      "community": 22,
       "norm_label": ".getaccountledger()"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "accounts_accounts_controller_accountscontroller_deleteaccount",
-      "community": 5,
+      "community": 22,
       "norm_label": ".deleteaccount()"
     },
     {
@@ -770,7 +770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "accounts_accounts_routes",
-      "community": 5,
+      "community": 22,
       "norm_label": "accounts.routes.ts"
     },
     {
@@ -780,7 +780,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "accounts_accounts_routes_accountsrouter",
-      "community": 5,
+      "community": 22,
       "norm_label": "accountsrouter"
     },
     {
@@ -1410,7 +1410,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller",
-      "community": 22,
+      "community": 18,
       "norm_label": "inboxcontroller"
     },
     {
@@ -1420,7 +1420,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_getpending",
-      "community": 22,
+      "community": 18,
       "norm_label": ".getpending()"
     },
     {
@@ -1430,7 +1430,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_getdeferred",
-      "community": 22,
+      "community": 18,
       "norm_label": ".getdeferred()"
     },
     {
@@ -1440,7 +1440,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_gettrash",
-      "community": 22,
+      "community": 18,
       "norm_label": ".gettrash()"
     },
     {
@@ -1450,7 +1450,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_getcandidate",
-      "community": 22,
+      "community": 18,
       "norm_label": ".getcandidate()"
     },
     {
@@ -1460,7 +1460,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_approve",
-      "community": 22,
+      "community": 18,
       "norm_label": ".approve()"
     },
     {
@@ -1470,7 +1470,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_defer",
-      "community": 22,
+      "community": 18,
       "norm_label": ".defer()"
     },
     {
@@ -1480,7 +1480,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_undefer",
-      "community": 22,
+      "community": 18,
       "norm_label": ".undefer()"
     },
     {
@@ -1490,7 +1490,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_delete",
-      "community": 22,
+      "community": 18,
       "norm_label": ".delete()"
     },
     {
@@ -1500,7 +1500,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_restore",
-      "community": 22,
+      "community": 18,
       "norm_label": ".restore()"
     },
     {
@@ -1510,7 +1510,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "inbox_inbox_controller_inboxcontroller_purge",
-      "community": 22,
+      "community": 18,
       "norm_label": ".purge()"
     },
     {
@@ -1640,7 +1640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "inbox_inbox_routes",
-      "community": 22,
+      "community": 18,
       "norm_label": "inbox.routes.ts"
     },
     {
@@ -1650,7 +1650,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "inbox_inbox_routes_inboxrouter",
-      "community": 22,
+      "community": 18,
       "norm_label": "inboxrouter"
     },
     {
@@ -1870,7 +1870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transactions_transactions_controller",
-      "community": 15,
+      "community": 5,
       "norm_label": "transactions.controller.ts"
     },
     {
@@ -1880,7 +1880,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "transactions_transactions_controller_postingschema",
-      "community": 15,
+      "community": 5,
       "norm_label": "postingschema"
     },
     {
@@ -1890,7 +1890,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "transactions_transactions_controller_createtransactionschema",
-      "community": 15,
+      "community": 5,
       "norm_label": "createtransactionschema"
     },
     {
@@ -1900,7 +1900,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "transactions_transactions_controller_formattedtransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": "formattedtransaction"
     },
     {
@@ -1910,7 +1910,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "transactions_transactions_controller_formattransactionresponse",
-      "community": 15,
+      "community": 5,
       "norm_label": "formattransactionresponse()"
     },
     {
@@ -1920,7 +1920,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller",
-      "community": 15,
+      "community": 5,
       "norm_label": "transactionscontroller"
     },
     {
@@ -1930,7 +1930,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_gettransactions",
-      "community": 15,
+      "community": 5,
       "norm_label": ".gettransactions()"
     },
     {
@@ -1940,7 +1940,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_gettransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": ".gettransaction()"
     },
     {
@@ -1950,7 +1950,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_createtransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": ".createtransaction()"
     },
     {
@@ -1960,7 +1960,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_updatetransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": ".updatetransaction()"
     },
     {
@@ -1970,7 +1970,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_deletetransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": ".deletetransaction()"
     },
     {
@@ -1980,7 +1980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transactions_transactions_routes",
-      "community": 15,
+      "community": 5,
       "norm_label": "transactions.routes.ts"
     },
     {
@@ -1990,7 +1990,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "transactions_transactions_routes_transactionsrouter",
-      "community": 15,
+      "community": 5,
       "norm_label": "transactionsrouter"
     },
     {
@@ -2020,7 +2020,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice",
-      "community": 15,
+      "community": 5,
       "norm_label": "transactionsservice"
     },
     {
@@ -2030,7 +2030,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_getalltransactions",
-      "community": 15,
+      "community": 5,
       "norm_label": ".getalltransactions()"
     },
     {
@@ -2040,7 +2040,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_gettransactionbyid",
-      "community": 15,
+      "community": 5,
       "norm_label": ".gettransactionbyid()"
     },
     {
@@ -2050,7 +2050,7 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_createtransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": ".createtransaction()"
     },
     {
@@ -2060,7 +2060,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_updatetransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": ".updatetransaction()"
     },
     {
@@ -2070,7 +2070,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_deletetransaction",
-      "community": 15,
+      "community": 5,
       "norm_label": ".deletetransaction()"
     },
     {
@@ -2130,7 +2130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 10,
+      "community": 2,
       "norm_label": "package.json"
     },
     {
@@ -2140,7 +2140,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_name",
-      "community": 10,
+      "community": 2,
       "norm_label": "name"
     },
     {
@@ -2150,7 +2150,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_version",
-      "community": 10,
+      "community": 2,
       "norm_label": "version"
     },
     {
@@ -2160,7 +2160,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_private",
-      "community": 10,
+      "community": 2,
       "norm_label": "private"
     },
     {
@@ -2170,7 +2170,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_description",
-      "community": 10,
+      "community": 2,
       "norm_label": "description"
     },
     {
@@ -2180,7 +2180,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_type",
-      "community": 10,
+      "community": 2,
       "norm_label": "type"
     },
     {
@@ -2190,7 +2190,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 10,
+      "community": 2,
       "norm_label": "scripts"
     },
     {
@@ -2200,7 +2200,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 10,
+      "community": 2,
       "norm_label": "dev"
     },
     {
@@ -2210,7 +2210,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "package_scripts_dev_build_watch",
-      "community": 10,
+      "community": 2,
       "norm_label": "dev:build-watch"
     },
     {
@@ -2220,7 +2220,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "package_scripts_dev_node",
-      "community": 10,
+      "community": 2,
       "norm_label": "dev:node"
     },
     {
@@ -2230,7 +2230,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 10,
+      "community": 2,
       "norm_label": "build"
     },
     {
@@ -2240,7 +2240,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "package_scripts_typecheck",
-      "community": 10,
+      "community": 2,
       "norm_label": "typecheck"
     },
     {
@@ -2250,7 +2250,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "package_scripts_db_generate",
-      "community": 10,
+      "community": 2,
       "norm_label": "db:generate"
     },
     {
@@ -2260,7 +2260,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "package_scripts_db_migrate_local",
-      "community": 10,
+      "community": 2,
       "norm_label": "db:migrate:local"
     },
     {
@@ -2270,7 +2270,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "package_scripts_db_migrate_prod",
-      "community": 10,
+      "community": 2,
       "norm_label": "db:migrate:prod"
     },
     {
@@ -2280,7 +2280,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "package_scripts_db_seed_local",
-      "community": 10,
+      "community": 2,
       "norm_label": "db:seed:local"
     },
     {
@@ -2290,7 +2290,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_scripts_db_init",
-      "community": 10,
+      "community": 2,
       "norm_label": "db:init"
     },
     {
@@ -2300,7 +2300,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_scripts_db_migrate_journal",
-      "community": 10,
+      "community": 2,
       "norm_label": "db:migrate-journal"
     },
     {
@@ -3040,7 +3040,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "dashboard_monthlyflowcategoryview_monthlyflowcategoryview",
-      "community": 13,
+      "community": 14,
       "norm_label": "monthlyflowcategoryview()"
     },
     {
@@ -3440,7 +3440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transactions_transactionformview",
-      "community": 18,
+      "community": 13,
       "norm_label": "transactionformview.tsx"
     },
     {
@@ -3450,7 +3450,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "transactions_transactionformview_transactionformviewprops",
-      "community": 18,
+      "community": 13,
       "norm_label": "transactionformviewprops"
     },
     {
@@ -3460,7 +3460,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "transactions_transactionformview_transactionformview",
-      "community": 18,
+      "community": 13,
       "norm_label": "transactionformview()"
     },
     {
@@ -3470,7 +3470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transactions_transactionslistview",
-      "community": 18,
+      "community": 17,
       "norm_label": "transactionslistview.tsx"
     },
     {
@@ -3480,7 +3480,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "transactions_transactionslistview_transactionslistview",
-      "community": 18,
+      "community": 17,
       "norm_label": "transactionslistview()"
     },
     {
@@ -3490,7 +3490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transactions_transactionsview",
-      "community": 18,
+      "community": 17,
       "norm_label": "transactionsview.tsx"
     },
     {
@@ -3500,7 +3500,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "transactions_transactionsview_transactionsview",
-      "community": 18,
+      "community": 17,
       "norm_label": "transactionsview()"
     },
     {
@@ -3830,7 +3830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_types_account",
-      "community": 5,
+      "community": 22,
       "norm_label": "account.ts"
     },
     {
@@ -3840,7 +3840,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "shared_types_account_accounttypeschema",
-      "community": 5,
+      "community": 22,
       "norm_label": "accounttypeschema"
     },
     {
@@ -3860,7 +3860,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "shared_types_account_accountentityschema",
-      "community": 5,
+      "community": 22,
       "norm_label": "accountentityschema"
     },
     {
@@ -3940,7 +3940,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "shared_types_brands_transactionid",
-      "community": 15,
+      "community": 5,
       "norm_label": "transactionid"
     },
     {
@@ -4040,7 +4040,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "shared_types_brands_totransactionid",
-      "community": 15,
+      "community": 22,
       "norm_label": "totransactionid()"
     },
     {
@@ -4100,7 +4100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_types_category",
-      "community": 22,
+      "community": 3,
       "norm_label": "category.ts"
     },
     {
@@ -4110,7 +4110,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "shared_types_category_categorytypeschema",
-      "community": 22,
+      "community": 3,
       "norm_label": "categorytypeschema"
     },
     {
@@ -4120,7 +4120,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "shared_types_category_categorytype",
-      "community": 22,
+      "community": 3,
       "norm_label": "categorytype"
     },
     {
@@ -4500,7 +4500,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "shared_types_transaction_transactiontypeschema",
-      "community": 15,
+      "community": 5,
       "norm_label": "transactiontypeschema"
     },
     {
@@ -4530,7 +4530,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "shared_types_transaction_transaction",
-      "community": 15,
+      "community": 5,
       "norm_label": "transaction"
     },
     {
@@ -4540,7 +4540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_types_utils",
-      "community": 5,
+      "community": 22,
       "norm_label": "utils.ts"
     },
     {
@@ -4550,7 +4550,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "shared_types_utils_sanitizepathsegment",
-      "community": 5,
+      "community": 22,
       "norm_label": "sanitizepathsegment()"
     },
     {
@@ -4560,7 +4560,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "shared_types_utils_generatehledgerpath",
-      "community": 5,
+      "community": 22,
       "norm_label": "generatehledgerpath()"
     },
     {
@@ -4570,7 +4570,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "shared_types_utils_isvalidcalendardate",
-      "community": 5,
+      "community": 22,
       "norm_label": "isvalidcalendardate()"
     },
     {
@@ -4982,6 +4982,86 @@
       "id": "vite_config",
       "community": 29,
       "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 19,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Pacioli-App",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_pacioli_app",
+      "community": 19,
+      "norm_label": "pacioli-app"
+    },
+    {
+      "label": "\ud83d\udee0\ufe0f Technology Stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "readme_technology_stack",
+      "community": 19,
+      "norm_label": "\ud83d\udee0\ufe0f technology stack"
+    },
+    {
+      "label": "\ud83d\udcc1 Project Structure",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "readme_project_structure",
+      "community": 19,
+      "norm_label": "\ud83d\udcc1 project structure"
+    },
+    {
+      "label": "\ud83d\udcbb Local Development",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "readme_local_development",
+      "community": 19,
+      "norm_label": "\ud83d\udcbb local development"
+    },
+    {
+      "label": "\ud83d\uddc4\ufe0f Database Management & Migrations",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "readme_database_management_migrations",
+      "community": 19,
+      "norm_label": "\ud83d\uddc4\ufe0f database management & migrations"
+    },
+    {
+      "label": "\ud83d\ude80 Production Deployment (Hybrid Approach)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L83",
+      "_origin": "ast",
+      "id": "readme_production_deployment_hybrid_approach",
+      "community": 19,
+      "norm_label": "\ud83d\ude80 production deployment (hybrid approach)"
+    },
+    {
+      "label": "\ud83d\udd12 Agent Customization Guidelines",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "readme_agent_customization_guidelines",
+      "community": 19,
+      "norm_label": "\ud83d\udd12 agent customization guidelines"
     }
   ],
   "links": [
@@ -14575,8 +14655,78 @@
       "confidence_score": 1.0,
       "source": "tsconfig_node_compileroptions_paths",
       "target": "tsconfig_node_paths_finance_platform_shared_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_pacioli_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "readme_pacioli_app",
+      "target": "readme_agent_customization_guidelines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "readme_pacioli_app",
+      "target": "readme_database_management_migrations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "readme_pacioli_app",
+      "target": "readme_local_development",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "readme_pacioli_app",
+      "target": "readme_production_deployment_hybrid_approach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "readme_pacioli_app",
+      "target": "readme_project_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "readme_pacioli_app",
+      "target": "readme_technology_stack",
+      "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "13e079ef8d837b5c55574d17b7719c34e384e018"
+  "built_at_commit": "acdd831cd63b9aa0b5952d61a92759ca60cef69e"
 }
