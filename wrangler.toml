@@ -1,0 +1,16 @@
+name = "pacioli-app"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+NODE_ENV = "production"
+
+# IMPORTANT: Replace the database_id below with your actual Cloudflare D1
+# database ID. To find it, run: wrangler d1 list
+# Then set the real ID before running: wrangler pages deploy
+[[d1_databases]]
+binding = "DB"
+database_name = "pacioli-db"
+database_id = "2ffb3077-63fe-4af5-ad24-4a4f79510822"
+migrations_dir = "drizzle"
