@@ -4,7 +4,7 @@ import { useLocation } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
 import { fetchTransactions, fetchAccounts, queryKeys } from '@/lib/api';
 import { cn, formatCurrency } from '@/lib/utils';
-import type { Transaction, AccountEntity } from '@finance-platform/shared-types';
+import type { Transaction } from '@finance-platform/shared-types';
 import { MONTHS, EMPTY_TRANSACTIONS, EMPTY_ACCOUNTS } from './constants';
 
 interface MonthlyFlowCategoryViewProps {
