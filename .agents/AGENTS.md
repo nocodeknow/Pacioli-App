@@ -22,7 +22,19 @@ The Cloudflare-hosted production database (`pacioli-db` on D1) is the user's pri
 
 ---
 
-## 💻 2. Local Development & Compilation
+## 🚀 2. Hybrid Deployment Strategy
+To guarantee data integrity and seamless code updates, follow a hybrid deployment strategy:
+*   **Git / GitHub**: Used strictly as the source of truth for code collaboration, revision history, and backup. All changes must be committed and pushed to GitHub.
+*   **Direct CLI Deployments**: Do NOT rely on automatic GitHub CI/CD pipelines to deploy to Cloudflare. Instead, build and deploy manually using Wrangler CLI to ensure the code deployment is exactly choreographed with the D1 database migrations.
+*   **Deployment Sequence**:
+    1. Commit and push all working code to GitHub.
+    2. Apply database migrations to the remote D1 production database using `pnpm db:migrate:prod`.
+    3. Build the assets locally: `pnpm build`.
+    4. Deploy directly to Cloudflare Pages: `pnpm wrangler pages deploy dist`.
+
+---
+
+## 💻 3. Local Development & Compilation
 Do not use legacy Node servers for development. The application runs on Cloudflare Pages Functions.
 
 *   **Vite Watcher**: Compile code continuously during local edits:
