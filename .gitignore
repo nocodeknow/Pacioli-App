@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+.pnpm-store/
+
+# Builds and build output
+dist/
+build/
+.next/
+out/
+
+# Local databases and logs
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+storage/test.db
+storage/pacioli.db
+apps/api/storage/*.db
+apps/api/storage/*.db-journal
+apps/api/storage/*.db-shm
+apps/api/storage/*.db-wal
+
+# Local env files
+.env
+.env.local
+.env.production
+.env.development
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor and agent files
+.gemini/
+.agents/
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

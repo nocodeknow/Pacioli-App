@@ -1,0 +1,7 @@
+{
+  "name": "@finance-platform/automation",
+  "version": "0.1.0",
+  "description": "Personal Finance Automation Platform - Data Acquisition & Candidate Stage",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts"
+}

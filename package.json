@@ -1,0 +1,25 @@
+{
+  "name": "finance-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal Finance Automation Platform",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "build": "pnpm --filter @finance-platform/shared-types build && pnpm --filter @finance-platform/ledger-interface build && pnpm --filter @finance-platform/api build",
+    "build:web": "pnpm --filter @finance-platform/shared-types build && pnpm --filter @finance-platform/ledger-interface build && pnpm --filter @finance-platform/web build",
+    "dev": "pnpm --parallel -r dev",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
+  }
+}

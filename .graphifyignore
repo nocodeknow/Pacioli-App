@@ -1,0 +1,47 @@
+# Exclude all markdown files completely
+**/*.md
+
+# Exclude package configurations
+**/package.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# Exclude TypeScript compiler configurations
+**/tsconfig*.json
+
+# Exclude agent and administrative directories
+.agents/
+agents/
+docs/
+
+# Exclude common diagnostic utility scripts
+*check_monorepo*
+*check_performance*
+*check_tooling*
+*check_tsconfig*
+*check_type_assertions*
+*check_type_errors*
+*check_versions*
+*check_any_usage*
+*ts_diagnostic*
+
+# Exclude database and operational assets
+storage/
+supabase/
+dist/
+build/
+node_modules/
+
+# Exclude HTML and YAML documents
+*.html
+*.yaml
+*.yml
+
+# Exclude all images and assets
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.gif
+*.webp
+*.ico
