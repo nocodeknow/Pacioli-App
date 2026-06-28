@@ -22,7 +22,9 @@ app.use('*', cors({
 // AsyncLocalStorage binding middleware
 app.use('*', async (c, next) => {
   if (c.env && c.env.DB) {
-    const dbInstance = drizzle(c.env.DB, { schema });
+    const dbInstance = typeof c.env.DB.select === 'function'
+      ? c.env.DB
+      : drizzle(c.env.DB, { schema });
     return dbContext.run(dbInstance, () => next());
   }
   // No D1 binding found — fail fast with a clear diagnostic error.

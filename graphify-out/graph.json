@@ -10,7 +10,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_app",
-      "community": 11,
+      "community": 8,
       "norm_label": "app.ts"
     },
     {
@@ -20,7 +20,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "api_app_app",
-      "community": 11,
+      "community": 8,
       "norm_label": "app"
     },
     {
@@ -30,7 +30,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "config_env",
-      "community": 11,
+      "community": 8,
       "norm_label": "env.ts"
     },
     {
@@ -40,7 +40,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "config_env_envschema",
-      "community": 11,
+      "community": 8,
       "norm_label": "envschema"
     },
     {
@@ -50,7 +50,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "config_env_parsed",
-      "community": 11,
+      "community": 8,
       "norm_label": "parsed"
     },
     {
@@ -90,7 +90,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "db_index",
-      "community": 15,
+      "community": 11,
       "norm_label": "index.ts"
     },
     {
@@ -120,7 +120,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "db_read_getjournalsha256",
-      "community": 15,
+      "community": 10,
       "norm_label": "getjournalsha256()"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "db_read_getalltransactions",
-      "community": 11,
+      "community": 15,
       "norm_label": "getalltransactions()"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "db_schema_accounts",
-      "community": 3,
+      "community": 11,
       "norm_label": "accounts"
     },
     {
@@ -260,7 +260,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "db_schema_connectors",
-      "community": 6,
+      "community": 11,
       "norm_label": "connectors"
     },
     {
@@ -420,7 +420,7 @@
       "source_location": "L299",
       "_origin": "ast",
       "id": "db_write_renameaccountinjournal",
-      "community": 3,
+      "community": 11,
       "norm_label": "renameaccountinjournal()"
     },
     {
@@ -520,7 +520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_logger",
-      "community": 11,
+      "community": 8,
       "norm_label": "logger.ts"
     },
     {
@@ -530,7 +530,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "api_logger_logger",
-      "community": 11,
+      "community": 8,
       "norm_label": "logger"
     },
     {
@@ -770,7 +770,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "accounts_accounts_service_getaccounttypefrompath",
-      "community": 11,
+      "community": 4,
       "norm_label": "getaccounttypefrompath()"
     },
     {
@@ -884,16 +884,6 @@
       "norm_label": "accounts.test.ts"
     },
     {
-      "label": "app",
-      "file_type": "code",
-      "source_file": "api/modules/accounts/accounts.test.ts",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "accounts_accounts_test_app",
-      "community": 11,
-      "norm_label": "app"
-    },
-    {
       "label": "AccountResponse",
       "file_type": "code",
       "source_file": "api/modules/accounts/accounts.test.ts",
@@ -990,7 +980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "categories_categories_repository",
-      "community": 3,
+      "community": 11,
       "norm_label": "categories.repository.ts"
     },
     {
@@ -1070,7 +1060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "categories_categories_routes",
-      "community": 3,
+      "community": 8,
       "norm_label": "categories.routes.ts"
     },
     {
@@ -1080,7 +1070,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "categories_categories_routes_categoriesrouter",
-      "community": 3,
+      "community": 8,
       "norm_label": "categoriesrouter"
     },
     {
@@ -1090,7 +1080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "categories_categories_service",
-      "community": 3,
+      "community": 11,
       "norm_label": "categories.service.ts"
     },
     {
@@ -1210,7 +1200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "connectors_connectors_repository",
-      "community": 6,
+      "community": 11,
       "norm_label": "connectors.repository.ts"
     },
     {
@@ -1360,7 +1350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "inbox_inbox_controller",
-      "community": 0,
+      "community": 22,
       "norm_label": "inbox.controller.ts"
     },
     {
@@ -1370,7 +1360,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "inbox_inbox_controller_approvepayloadschema",
-      "community": 0,
+      "community": 22,
       "norm_label": "approvepayloadschema"
     },
     {
@@ -1610,7 +1600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "inbox_inbox_routes",
-      "community": 11,
+      "community": 8,
       "norm_label": "inbox.routes.ts"
     },
     {
@@ -1620,7 +1610,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "inbox_inbox_routes_inboxrouter",
-      "community": 11,
+      "community": 8,
       "norm_label": "inboxrouter"
     },
     {
@@ -1810,7 +1800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "reports_reports_service",
-      "community": 8,
+      "community": 22,
       "norm_label": "reports.service.ts"
     },
     {
@@ -1820,7 +1810,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "reports_reports_service_reportsservice",
-      "community": 8,
+      "community": 22,
       "norm_label": "reportsservice"
     },
     {
@@ -1830,8 +1820,28 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "reports_reports_service_reportsservice_getdashboarddata",
-      "community": 8,
+      "community": 22,
       "norm_label": ".getdashboarddata()"
+    },
+    {
+      "label": "test-helper.ts",
+      "file_type": "code",
+      "source_file": "api/modules/test-helper.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "modules_test_helper",
+      "community": 11,
+      "norm_label": "test-helper.ts"
+    },
+    {
+      "label": "setupTestDb()",
+      "file_type": "code",
+      "source_file": "api/modules/test-helper.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "modules_test_helper_setuptestdb",
+      "community": 11,
+      "norm_label": "setuptestdb()"
     },
     {
       "label": "transactions.controller.ts",
@@ -1840,7 +1850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transactions_transactions_controller",
-      "community": 15,
+      "community": 10,
       "norm_label": "transactions.controller.ts"
     },
     {
@@ -1850,7 +1860,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "transactions_transactions_controller_postingschema",
-      "community": 15,
+      "community": 10,
       "norm_label": "postingschema"
     },
     {
@@ -1860,7 +1870,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "transactions_transactions_controller_createtransactionschema",
-      "community": 15,
+      "community": 10,
       "norm_label": "createtransactionschema"
     },
     {
@@ -1870,7 +1880,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "transactions_transactions_controller_formattedtransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": "formattedtransaction"
     },
     {
@@ -1880,7 +1890,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "transactions_transactions_controller_formattransactionresponse",
-      "community": 15,
+      "community": 10,
       "norm_label": "formattransactionresponse()"
     },
     {
@@ -1890,7 +1900,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller",
-      "community": 15,
+      "community": 10,
       "norm_label": "transactionscontroller"
     },
     {
@@ -1900,7 +1910,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_gettransactions",
-      "community": 15,
+      "community": 10,
       "norm_label": ".gettransactions()"
     },
     {
@@ -1910,7 +1920,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_gettransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": ".gettransaction()"
     },
     {
@@ -1920,7 +1930,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_createtransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": ".createtransaction()"
     },
     {
@@ -1930,7 +1940,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_updatetransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": ".updatetransaction()"
     },
     {
@@ -1940,7 +1950,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "transactions_transactions_controller_transactionscontroller_deletetransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": ".deletetransaction()"
     },
     {
@@ -1950,7 +1960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transactions_transactions_routes",
-      "community": 15,
+      "community": 8,
       "norm_label": "transactions.routes.ts"
     },
     {
@@ -1960,7 +1970,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "transactions_transactions_routes_transactionsrouter",
-      "community": 15,
+      "community": 8,
       "norm_label": "transactionsrouter"
     },
     {
@@ -1990,7 +2000,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice",
-      "community": 15,
+      "community": 10,
       "norm_label": "transactionsservice"
     },
     {
@@ -2000,7 +2010,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_getalltransactions",
-      "community": 15,
+      "community": 10,
       "norm_label": ".getalltransactions()"
     },
     {
@@ -2010,7 +2020,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_gettransactionbyid",
-      "community": 15,
+      "community": 10,
       "norm_label": ".gettransactionbyid()"
     },
     {
@@ -2020,7 +2030,7 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_createtransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": ".createtransaction()"
     },
     {
@@ -2030,7 +2040,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_updatetransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": ".updatetransaction()"
     },
     {
@@ -2040,7 +2050,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "transactions_transactions_service_transactionsservice_deletetransaction",
-      "community": 15,
+      "community": 10,
       "norm_label": ".deletetransaction()"
     },
     {
@@ -2052,16 +2062,6 @@
       "id": "transactions_transactions_test",
       "community": 11,
       "norm_label": "transactions.test.ts"
-    },
-    {
-      "label": "app",
-      "file_type": "code",
-      "source_file": "api/modules/transactions/transactions.test.ts",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "transactions_transactions_test_app",
-      "community": 11,
-      "norm_label": "app"
     },
     {
       "label": "drizzle.config.ts",
@@ -2080,7 +2080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_route",
-      "community": 11,
+      "community": 8,
       "norm_label": "[[route]].ts"
     },
     {
@@ -2090,7 +2090,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "api_route_onrequest",
-      "community": 11,
+      "community": 8,
       "norm_label": "onrequest"
     },
     {
@@ -2214,10 +2214,20 @@
       "norm_label": "typecheck"
     },
     {
-      "label": "db:generate",
+      "label": "test",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L13",
+      "_origin": "ast",
+      "id": "package_scripts_test",
+      "community": 31,
+      "norm_label": "test"
+    },
+    {
+      "label": "db:generate",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "package_scripts_db_generate",
       "community": 31,
@@ -2227,7 +2237,7 @@
       "label": "db:migrate:local",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "package_scripts_db_migrate_local",
       "community": 31,
@@ -2237,7 +2247,7 @@
       "label": "db:migrate:prod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "package_scripts_db_migrate_prod",
       "community": 31,
@@ -2247,7 +2257,7 @@
       "label": "db:seed:local",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "package_scripts_db_seed_local",
       "community": 31,
@@ -2257,7 +2267,7 @@
       "label": "db:init",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "package_scripts_db_init",
       "community": 31,
@@ -2267,7 +2277,7 @@
       "label": "db:migrate-journal",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "package_scripts_db_migrate_journal",
       "community": 31,
@@ -2277,7 +2287,7 @@
       "label": "dependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_dependencies",
       "community": 31,
@@ -2287,7 +2297,7 @@
       "label": "@fontsource-variable/geist",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "package_dependencies_fontsource_variable_geist",
       "community": 31,
@@ -2297,7 +2307,7 @@
       "label": "@tanstack/react-query",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "package_dependencies_tanstack_react_query",
       "community": 31,
@@ -2307,7 +2317,7 @@
       "label": "class-variance-authority",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_dependencies_class_variance_authority",
       "community": 31,
@@ -2317,7 +2327,7 @@
       "label": "clsx",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_dependencies_clsx",
       "community": 31,
@@ -2327,7 +2337,7 @@
       "label": "drizzle-orm",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_dependencies_drizzle_orm",
       "community": 31,
@@ -2337,7 +2347,7 @@
       "label": "framer-motion",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
       "community": 31,
@@ -2347,7 +2357,7 @@
       "label": "hono",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_dependencies_hono",
       "community": 31,
@@ -2357,7 +2367,7 @@
       "label": "lucide-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "package_dependencies_lucide_react",
       "community": 31,
@@ -2367,7 +2377,7 @@
       "label": "radix-ui",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "package_dependencies_radix_ui",
       "community": 31,
@@ -2377,7 +2387,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "package_dependencies_react",
       "community": 31,
@@ -2387,7 +2397,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "package_dependencies_react_dom",
       "community": 31,
@@ -2397,7 +2407,7 @@
       "label": "sonner",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "package_dependencies_sonner",
       "community": 31,
@@ -2407,7 +2417,7 @@
       "label": "tailwind-merge",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "package_dependencies_tailwind_merge",
       "community": 31,
@@ -2417,7 +2427,7 @@
       "label": "tw-animate-css",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "package_dependencies_tw_animate_css",
       "community": 31,
@@ -2427,7 +2437,7 @@
       "label": "wouter",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "package_dependencies_wouter",
       "community": 31,
@@ -2437,7 +2447,7 @@
       "label": "zod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "package_dependencies_zod",
       "community": 31,
@@ -2447,7 +2457,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 2,
@@ -2457,7 +2467,7 @@
       "label": "@hono/node-server",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "package_devdependencies_hono_node_server",
       "community": 2,
@@ -2467,7 +2477,7 @@
       "label": "@libsql/client",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "package_devdependencies_libsql_client",
       "community": 2,
@@ -2477,7 +2487,7 @@
       "label": "@tailwindcss/vite",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss_vite",
       "community": 2,
@@ -2487,7 +2497,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
       "community": 2,
@@ -2497,7 +2507,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "package_devdependencies_types_react",
       "community": 2,
@@ -2507,7 +2517,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "package_devdependencies_types_react_dom",
       "community": 2,
@@ -2517,7 +2527,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "package_devdependencies_vitejs_plugin_react",
       "community": 2,
@@ -2527,7 +2537,7 @@
       "label": "autoprefixer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "package_devdependencies_autoprefixer",
       "community": 2,
@@ -2537,7 +2547,7 @@
       "label": "concurrently",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "package_devdependencies_concurrently",
       "community": 2,
@@ -2547,7 +2557,7 @@
       "label": "dotenv",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "package_devdependencies_dotenv",
       "community": 2,
@@ -2557,7 +2567,7 @@
       "label": "drizzle-kit",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "package_devdependencies_drizzle_kit",
       "community": 2,
@@ -2567,7 +2577,7 @@
       "label": "pino",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L50",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "package_devdependencies_pino",
       "community": 2,
@@ -2577,7 +2587,7 @@
       "label": "postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "package_devdependencies_postcss",
       "community": 2,
@@ -2587,7 +2597,7 @@
       "label": "shadcn",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L52",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "package_devdependencies_shadcn",
       "community": 2,
@@ -2597,7 +2607,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss",
       "community": 2,
@@ -2607,7 +2617,7 @@
       "label": "tailwindcss-animate",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss_animate",
       "community": 2,
@@ -2617,7 +2627,7 @@
       "label": "tsx",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "package_devdependencies_tsx",
       "community": 2,
@@ -2627,7 +2637,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 2,
@@ -2637,7 +2647,7 @@
       "label": "vite",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "package_devdependencies_vite",
       "community": 2,
@@ -2647,7 +2657,7 @@
       "label": "vitest",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "package_devdependencies_vitest",
       "community": 2,
@@ -2657,7 +2667,7 @@
       "label": "wrangler",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L59",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "package_devdependencies_wrangler",
       "community": 2,
@@ -2790,7 +2800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_dev_server",
-      "community": 11,
+      "community": 8,
       "norm_label": "dev-server.ts"
     },
     {
@@ -2800,7 +2810,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "scripts_dev_server_server",
-      "community": 11,
+      "community": 8,
       "norm_label": "server"
     },
     {
@@ -4110,7 +4120,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "shared_types_brands_transactionid",
-      "community": 15,
+      "community": 10,
       "norm_label": "transactionid"
     },
     {
@@ -4210,7 +4220,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "shared_types_brands_totransactionid",
-      "community": 22,
+      "community": 11,
       "norm_label": "totransactionid()"
     },
     {
@@ -4320,7 +4330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_types_index",
-      "community": 8,
+      "community": 22,
       "norm_label": "index.ts"
     },
     {
@@ -4460,7 +4470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_types_mocks",
-      "community": 8,
+      "community": 22,
       "norm_label": "mocks.ts"
     },
     {
@@ -4470,7 +4480,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "shared_types_mocks_accountbalanceschema",
-      "community": 8,
+      "community": 22,
       "norm_label": "accountbalanceschema"
     },
     {
@@ -4480,7 +4490,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "shared_types_mocks_accountbalance",
-      "community": 8,
+      "community": 22,
       "norm_label": "accountbalance"
     },
     {
@@ -4490,7 +4500,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "shared_types_mocks_accountsubgroupschema",
-      "community": 8,
+      "community": 22,
       "norm_label": "accountsubgroupschema"
     },
     {
@@ -4500,7 +4510,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "shared_types_mocks_accountsubgroup",
-      "community": 8,
+      "community": 22,
       "norm_label": "accountsubgroup"
     },
     {
@@ -4510,7 +4520,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "shared_types_mocks_categoryflowschema",
-      "community": 8,
+      "community": 22,
       "norm_label": "categoryflowschema"
     },
     {
@@ -4520,7 +4530,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "shared_types_mocks_categoryflow",
-      "community": 8,
+      "community": 22,
       "norm_label": "categoryflow"
     },
     {
@@ -4530,7 +4540,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "shared_types_mocks_monthlyflowschema",
-      "community": 8,
+      "community": 22,
       "norm_label": "monthlyflowschema"
     },
     {
@@ -4540,7 +4550,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "shared_types_mocks_monthlyflow",
-      "community": 8,
+      "community": 22,
       "norm_label": "monthlyflow"
     },
     {
@@ -4550,7 +4560,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "shared_types_mocks_settlementitemschema",
-      "community": 8,
+      "community": 22,
       "norm_label": "settlementitemschema"
     },
     {
@@ -4560,7 +4570,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "shared_types_mocks_settlementitem",
-      "community": 8,
+      "community": 22,
       "norm_label": "settlementitem"
     },
     {
@@ -4570,7 +4580,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "shared_types_mocks_dashboarddataschema",
-      "community": 8,
+      "community": 22,
       "norm_label": "dashboarddataschema"
     },
     {
@@ -4580,7 +4590,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "shared_types_mocks_dashboarddata",
-      "community": 8,
+      "community": 22,
       "norm_label": "dashboarddata"
     },
     {
@@ -4670,7 +4680,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "shared_types_transaction_transactiontypeschema",
-      "community": 22,
+      "community": 10,
       "norm_label": "transactiontypeschema"
     },
     {
@@ -4700,7 +4710,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "shared_types_transaction_transaction",
-      "community": 15,
+      "community": 10,
       "norm_label": "transaction"
     },
     {
@@ -5737,6 +5747,17 @@
       "target": "db_client"
     },
     {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/test-helper.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "modules_test_helper",
+      "target": "db_client",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -5779,6 +5800,39 @@
       "confidence_score": 1.0,
       "source": "transactions_transactions_test",
       "target": "db_client"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/accounts/accounts.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "accounts_accounts_test",
+      "target": "db_client_dbcontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/test-helper.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "modules_test_helper",
+      "target": "db_client_dbcontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/transactions/transactions.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "transactions_transactions_test",
+      "target": "db_client_dbcontext",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -6495,6 +6549,17 @@
       "confidence_score": 1.0,
       "source": "inbox_inbox_repository",
       "target": "db_schema"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/test-helper.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "modules_test_helper",
+      "target": "db_schema",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -8604,14 +8669,26 @@
       "target": "accounts_accounts_test_accountresponse"
     },
     {
-      "relation": "contains",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "api/modules/accounts/accounts.test.ts",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "accounts_accounts_test",
-      "target": "accounts_accounts_test_app"
+      "target": "modules_test_helper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/accounts/accounts.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "accounts_accounts_test",
+      "target": "modules_test_helper_setuptestdb",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10747,6 +10824,38 @@
       "target": "shared_types_mocks_dashboarddata"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/test-helper.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "modules_test_helper",
+      "target": "modules_test_helper_setuptestdb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/transactions/transactions.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "transactions_transactions_test",
+      "target": "modules_test_helper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/modules/transactions/transactions.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "transactions_transactions_test",
+      "target": "modules_test_helper_setuptestdb",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -11259,16 +11368,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "api/modules/transactions/transactions.test.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "transactions_transactions_test",
-      "target": "transactions_transactions_test_app"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "functions/api/[[route]].ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -11455,6 +11554,16 @@
       "confidence_score": 1.0,
       "source": "package_scripts",
       "target": "package_scripts_dev_node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_test",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -13148,9 +13257,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker",
-      "target": "ui_date_picker_datepicker",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_datepicker"
     },
     {
       "relation": "contains",
@@ -13158,9 +13267,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker",
-      "target": "ui_date_picker_datepickerprops",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_datepickerprops"
     },
     {
       "relation": "contains",
@@ -13168,9 +13277,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker",
-      "target": "ui_date_picker_formatdisplaydate",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_formatdisplaydate"
     },
     {
       "relation": "contains",
@@ -13178,9 +13287,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker",
-      "target": "ui_date_picker_formatlocaldate",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_formatlocaldate"
     },
     {
       "relation": "contains",
@@ -13188,9 +13297,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker",
-      "target": "ui_date_picker_months",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_months"
     },
     {
       "relation": "contains",
@@ -13198,9 +13307,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker",
-      "target": "ui_date_picker_parselocaldate",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_parselocaldate"
     },
     {
       "relation": "contains",
@@ -13208,9 +13317,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker",
-      "target": "ui_date_picker_weekdays",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_weekdays"
     },
     {
       "relation": "calls",
@@ -13219,9 +13328,9 @@
       "source_file": "src/components/ui/date-picker.tsx",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_date_picker_datepicker",
-      "target": "ui_date_picker_formatdisplaydate",
-      "confidence_score": 1.0
+      "target": "ui_date_picker_formatdisplaydate"
     },
     {
       "relation": "calls",
@@ -15060,5 +15169,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "16eb09086a2f16a1477eb552ed3baecc84624f66"
+  "built_at_commit": "a8fb38f7018831cbaa9a376b90419749f5d0a7e3"
 }

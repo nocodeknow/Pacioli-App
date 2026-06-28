@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeAll } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import request from 'supertest';
 import { app as honoApp } from '../../app.js';
 import { getRequestListener } from '@hono/node-server';
-const app = getRequestListener(honoApp.fetch);
+import { setupTestDb, dbContext } from '../test-helper.js';
 import { db } from '../../db/client.js';
 import { accounts, transactions, postings } from '../../db/schema.js';
 import { randomUUID } from 'crypto';
@@ -21,62 +21,80 @@ interface AccountResponse {
   notes: string | null;
 }
 
+let testDb: any;
+let client: any;
+let app: any;
+
 describe('Accounts API Endpoints', () => {
   beforeAll(async () => {
-    // Clear database
-    await db.delete(postings);
-    await db.delete(transactions);
-    await db.delete(accounts);
-    
-    // Seed Equity:Opening Balances
-    await db.insert(accounts).values({
-      id: '00000000-0000-0000-0000-000000000000',
-      name: 'Opening Balances Equity',
-      path: 'Equity:Opening Balances',
-      type: 'Equity',
-      archived: false,
-    });
+    const setup = await setupTestDb('accounts');
+    testDb = setup.testDb;
+    client = setup.client;
 
-    // Seed default HDFC account
-    await db.insert(accounts).values({
-      id: 'hdfc-acc-uuid',
-      name: 'HDFC',
-      path: 'Assets:Bank:HDFC',
-      type: 'Asset',
-      archived: false,
-    });
+    app = getRequestListener((req) => honoApp.fetch(req, { DB: testDb }));
 
-    // Seed default restaurant category (inside accounts table now)
-    await db.insert(accounts).values({
-      id: 'restaurant-cat-uuid',
-      name: 'Restaurant',
-      path: 'Expenses:Food:Restaurant',
-      type: 'Expense',
-      archived: false,
-    });
+    await dbContext.run(testDb, async () => {
+      // Clear database
+      await db.delete(postings);
+      await db.delete(transactions);
+      await db.delete(accounts);
+      
+      // Seed Equity:Opening Balances
+      await db.insert(accounts).values({
+        id: '00000000-0000-0000-0000-000000000000',
+        name: 'Opening Balances Equity',
+        path: 'Equity:Opening Balances',
+        type: 'Equity',
+        archived: false,
+      });
 
-    // Seed opening balance transaction for HDFC
-    const txId = randomUUID();
-    await db.insert(transactions).values({
-      id: txId,
-      date: '2026-06-01',
-      description: 'Opening Balances',
-      notes: 'Opening Balances',
+      // Seed default HDFC account
+      await db.insert(accounts).values({
+        id: 'hdfc-acc-uuid',
+        name: 'HDFC',
+        path: 'Assets:Bank:HDFC',
+        type: 'Asset',
+        archived: false,
+      });
+
+      // Seed default restaurant category (inside accounts table now)
+      await db.insert(accounts).values({
+        id: 'restaurant-cat-uuid',
+        name: 'Restaurant',
+        path: 'Expenses:Food:Restaurant',
+        type: 'Expense',
+        archived: false,
+      });
+
+      // Seed opening balance transaction for HDFC
+      const txId = randomUUID();
+      await db.insert(transactions).values({
+        id: txId,
+        date: '2026-06-01',
+        description: 'Opening Balances',
+        notes: 'Opening Balances',
+      });
+      await db.insert(postings).values([
+        {
+          id: randomUUID(),
+          transactionId: txId,
+          accountId: '00000000-0000-0000-0000-000000000000',
+          amount: -50000,
+        },
+        {
+          id: randomUUID(),
+          transactionId: txId,
+          accountId: 'hdfc-acc-uuid',
+          amount: 50000,
+        },
+      ]);
     });
-    await db.insert(postings).values([
-      {
-        id: randomUUID(),
-        transactionId: txId,
-        accountId: '00000000-0000-0000-0000-000000000000',
-        amount: -50000,
-      },
-      {
-        id: randomUUID(),
-        transactionId: txId,
-        accountId: 'hdfc-acc-uuid',
-        amount: 50000,
-      },
-    ]);
+  });
+
+  afterAll(async () => {
+    if (client) {
+      await client.close();
+    }
   });
 
   it('CRUD account flow including opening balance updates', async () => {

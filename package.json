@@ -10,6 +10,7 @@
     "dev:node": "concurrently \"vite --host\" \"tsx watch scripts/dev-server.ts\"",
     "build": "tsc -p tsconfig.node.json --noEmit && vite build",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
     "db:generate": "drizzle-kit generate",
     "db:migrate:local": "wrangler d1 migrations apply pacioli-db --local",
     "db:migrate:prod": "wrangler d1 migrations apply pacioli-db --remote",

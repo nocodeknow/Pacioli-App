@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeAll } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import request from 'supertest';
 import { app as honoApp } from '../../app.js';
 import { getRequestListener } from '@hono/node-server';
-const app = getRequestListener(honoApp.fetch);
+import { setupTestDb, dbContext } from '../test-helper.js';
 import { db } from '../../db/client.js';
 import { accounts, transactions, postings } from '../../db/schema.js';
 import { randomUUID } from 'crypto';
@@ -10,61 +10,79 @@ import { randomUUID } from 'crypto';
 let mockHdfcId = 'Assets:Bank:HDFC';
 let mockFoodId = 'Expenses:Food:Restaurant';
 
+let testDb: any;
+let client: any;
+let app: any;
+
 describe('Transactions API Endpoints', () => {
   beforeAll(async () => {
-    // Clear database
-    await db.delete(postings);
-    await db.delete(transactions);
-    await db.delete(accounts);
+    const setup = await setupTestDb('transactions');
+    testDb = setup.testDb;
+    client = setup.client;
 
-    // Seed Equity:Opening Balances
-    await db.insert(accounts).values({
-      id: '00000000-0000-0000-0000-000000000000',
-      name: 'Opening Balances Equity',
-      path: 'Equity:Opening Balances',
-      type: 'Equity',
-      archived: false,
-    });
+    app = getRequestListener((req) => honoApp.fetch(req, { DB: testDb }));
 
-    // Seed mock accounts
-    await db.insert(accounts).values({
-      id: 'hdfc-acc-uuid',
-      name: 'HDFC',
-      path: mockHdfcId,
-      type: 'Asset',
-      archived: false,
-    });
+    await dbContext.run(testDb, async () => {
+      // Clear database
+      await db.delete(postings);
+      await db.delete(transactions);
+      await db.delete(accounts);
 
-    await db.insert(accounts).values({
-      id: 'restaurant-cat-uuid',
-      name: 'Restaurant',
-      path: mockFoodId,
-      type: 'Expense',
-      archived: false,
-    });
+      // Seed Equity:Opening Balances
+      await db.insert(accounts).values({
+        id: '00000000-0000-0000-0000-000000000000',
+        name: 'Opening Balances Equity',
+        path: 'Equity:Opening Balances',
+        type: 'Equity',
+        archived: false,
+      });
 
-    // Seed opening balance transaction for HDFC
-    const txId = randomUUID();
-    await db.insert(transactions).values({
-      id: txId,
-      date: '2026-06-01',
-      description: 'Opening Balances',
-      notes: 'Opening Balances',
+      // Seed mock accounts
+      await db.insert(accounts).values({
+        id: 'hdfc-acc-uuid',
+        name: 'HDFC',
+        path: mockHdfcId,
+        type: 'Asset',
+        archived: false,
+      });
+
+      await db.insert(accounts).values({
+        id: 'restaurant-cat-uuid',
+        name: 'Restaurant',
+        path: mockFoodId,
+        type: 'Expense',
+        archived: false,
+      });
+
+      // Seed opening balance transaction for HDFC
+      const txId = randomUUID();
+      await db.insert(transactions).values({
+        id: txId,
+        date: '2026-06-01',
+        description: 'Opening Balances',
+        notes: 'Opening Balances',
+      });
+      await db.insert(postings).values([
+        {
+          id: randomUUID(),
+          transactionId: txId,
+          accountId: '00000000-0000-0000-0000-000000000000',
+          amount: -50000,
+        },
+        {
+          id: randomUUID(),
+          transactionId: txId,
+          accountId: 'hdfc-acc-uuid',
+          amount: 50000,
+        },
+      ]);
     });
-    await db.insert(postings).values([
-      {
-        id: randomUUID(),
-        transactionId: txId,
-        accountId: '00000000-0000-0000-0000-000000000000',
-        amount: -50000,
-      },
-      {
-        id: randomUUID(),
-        transactionId: txId,
-        accountId: 'hdfc-acc-uuid',
-        amount: 50000,
-      },
-    ]);
+  });
+
+  afterAll(async () => {
+    if (client) {
+      await client.close();
+    }
   });
 
   it('CRUD manual transaction flow', async () => {
